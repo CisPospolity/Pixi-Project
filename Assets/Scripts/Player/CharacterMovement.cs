@@ -13,6 +13,8 @@ public class CharacterMovement : MonoBehaviour
     private Vector2 movementVector;
     private Vector2 rotation;
     [SerializeField]
+    private float controllerDeadzone = 0.1f;
+    [SerializeField]
     private float speed;
     [SerializeField]
     private float jumpHeight;
@@ -50,15 +52,17 @@ public class CharacterMovement : MonoBehaviour
     {
         if(playerInputSystem.IsGamepad())
         {
-            Vector3 camForwardDir = Camera.main.transform.forward;
-            camForwardDir.y = 0;
-            Vector3 camRightDir = Camera.main.transform.right;
-            camRightDir.y = 0;
-            Vector3 playerDir = camRightDir * rotation.x + camForwardDir * rotation.y;
-            if(playerDir.sqrMagnitude > 0)
-            {
-                Quaternion newRot = Quaternion.LookRotation(playerDir, Vector3.up);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, newRot, 1000f * Time.deltaTime);
+            if (Mathf.Abs(rotation.x) > controllerDeadzone || Mathf.Abs(rotation.y) > controllerDeadzone) {
+                Vector3 camForwardDir = Camera.main.transform.forward;
+                camForwardDir.y = 0;
+                Vector3 camRightDir = Camera.main.transform.right;
+                camRightDir.y = 0;
+                Vector3 playerDir = camRightDir * rotation.x + camForwardDir * rotation.y;
+                if (playerDir.sqrMagnitude > 0)
+                {
+                    Quaternion newRot = Quaternion.LookRotation(playerDir, Vector3.up);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, newRot, 1000f * Time.deltaTime);
+                }
             }
         } else
         {
