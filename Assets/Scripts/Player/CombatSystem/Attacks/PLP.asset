@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PLP
   m_EditorClassIdentifier: 
   attackName: 
-  type: 0
-  lockOutTime: 0.2
-  maxNextComboTime: 0.5
-  command: LL
+  type: 1
+  lockOutTime: 1
+  maxNextComboTime: 2
+  command: PLP

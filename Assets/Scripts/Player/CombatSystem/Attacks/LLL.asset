@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: 
   type: 0
-  lockOutTime: 0.2
-  maxNextComboTime: 0.5
+  lockOutTime: 1
+  maxNextComboTime: 2
   command: LLL

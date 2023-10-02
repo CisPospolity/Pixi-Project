@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboName: 
   comboAttacks:
-  - {fileID: 11400000, guid: 941b468932197df4f85db269925146bc, type: 2}
-  - {fileID: 11400000, guid: 9a583e850ee074943b9168e268c5fed2, type: 2}
-  - {fileID: 11400000, guid: e3dd2f2f75fbb8c45aa3efe20568a1e5, type: 2}
+  - {fileID: 11400000, guid: 0a02b24a624a20244b9377b50ebfb331, type: 2}
+  - {fileID: 11400000, guid: 83f998200cea10840a6aa4271262143f, type: 2}
+  - {fileID: 11400000, guid: 663444e69b8254240b84439d0cc6316c, type: 2}
