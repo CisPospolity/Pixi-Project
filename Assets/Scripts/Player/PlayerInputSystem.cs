@@ -21,6 +21,8 @@ public class PlayerInputSystem : MonoBehaviour, PlayerControls.IGameplayActions
     }
     public event Action<Vector2> onLookRotation;
     public event Action<Vector2> onMovement;
+    public event Action onLightAttack;
+    public event Action onHeavyAttack;
     public event Action onJump;
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -53,5 +55,21 @@ public class PlayerInputSystem : MonoBehaviour, PlayerControls.IGameplayActions
     public bool IsGamepad()
     {
         return isGamepad;
+    }
+
+    public void OnLightAttack(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            onLightAttack?.Invoke();
+        }
+    }
+
+    public void OnHeavyAttack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            onHeavyAttack?.Invoke();
+        }
     }
 }
