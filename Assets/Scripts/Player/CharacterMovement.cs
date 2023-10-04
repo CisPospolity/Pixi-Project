@@ -44,7 +44,7 @@ public class CharacterMovement : MonoBehaviour
         {
             playerVelocity.y = 0;
         }
-
+        PlayerMovement();
         RotatePlayer();
     }
 
@@ -79,7 +79,7 @@ public class CharacterMovement : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
+    private void PlayerMovement()
     {
 
         //WSAD Movement
