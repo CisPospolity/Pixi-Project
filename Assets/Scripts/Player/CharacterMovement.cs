@@ -22,7 +22,40 @@ public class CharacterMovement : MonoBehaviour
     private float gravity = 24f;
     [SerializeField]
     private Vector3 playerVelocity = Vector3.zero;
+
+    private bool isDashing = false;
     #endregion
+
+    public Vector2 GetMovementVector()
+    {
+        return movementVector;
+    }
+
+    public Vector3 GetRelativeMovementVector()
+    {
+        movementVector = movementVector.normalized;
+        Vector3 forwardDir = Camera.main.transform.forward;
+        forwardDir.y = 0;
+        forwardDir = forwardDir.normalized;
+        forwardDir = forwardDir * movementVector.y;
+        Vector3 rightDir = Camera.main.transform.right;
+        rightDir.y = 0;
+        rightDir = rightDir.normalized;
+        rightDir = rightDir * movementVector.x;
+        Vector3 moveDir = (forwardDir + rightDir);
+        return moveDir;
+    }
+
+    public void SetDashBool(bool isDashing)
+    {
+        this.isDashing = isDashing;
+    }
+
+    public void ResetHeightVelocity()
+    {
+        playerVelocity.y = 0;
+    }
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -81,7 +114,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void PlayerMovement()
     {
-
+        if (isDashing) return;
         //WSAD Movement
         movementVector = movementVector.normalized;
         Vector3 forwardDir = Camera.main.transform.forward;

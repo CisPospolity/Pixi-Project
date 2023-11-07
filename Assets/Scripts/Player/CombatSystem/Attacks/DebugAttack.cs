@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "newAttack", menuName = "Player Combo System/Attack/Debug Attack")]
+[CreateAssetMenu(fileName = "newAttack", menuName = "Player Combat System/Attack/Debug Attack")]
 public class DebugAttack : Attack
 {
     [SerializeField]

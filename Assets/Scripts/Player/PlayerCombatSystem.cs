@@ -2,10 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PlayerAbilities;
 
 [RequireComponent(typeof(PlayerInputSystem))]
 public class PlayerCombatSystem : MonoBehaviour
 {
+    [Header("Abilities")]
+    [SerializeField]
+    private PassiveAbility passiveAbility;
+    [SerializeField]
+    private AttackPassiveAbility attackPassiveAbility;
+    [SerializeField]
+    private DashAbility dashAbility;
+    [SerializeField]
+    private QuickSkill quickSkill;
+    [SerializeField]
+    private StrongSkill strongSkill;
+
     private PlayerInputSystem playerInputSystem;
     private PlayerComboSystem playerComboSystem;
     public event Action<AttackType> onAttack;
@@ -16,6 +29,8 @@ public class PlayerCombatSystem : MonoBehaviour
 
         playerInputSystem.onLightAttack += LightAttack;
         playerInputSystem.onHeavyAttack += HeavyAttack;
+
+        playerInputSystem.onDash += DashSkill;
     }
 
     public void LightAttack()
@@ -26,6 +41,24 @@ public class PlayerCombatSystem : MonoBehaviour
     public void HeavyAttack()
     {
         playerComboSystem.HeavyAttack();
+    }
+
+    public void DashSkill()
+    {
+        if(dashAbility != null)
+        {
+            dashAbility.Execute();
+        }
+    }
+
+    public DashAbility GetDashAbility()
+    {
+        return dashAbility;
+    }
+
+    public void SetExistingDashAbility(DashAbility dash)
+    {
+        dashAbility = dash;
     }
 
 }

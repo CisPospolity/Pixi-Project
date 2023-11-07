@@ -24,6 +24,7 @@ public class PlayerInputSystem : MonoBehaviour, PlayerControls.IGameplayActions
     public event Action onLightAttack;
     public event Action onHeavyAttack;
     public event Action onJump;
+    public event Action onDash;
 
     public void OnMovement(InputAction.CallbackContext context)
     {
@@ -71,5 +72,28 @@ public class PlayerInputSystem : MonoBehaviour, PlayerControls.IGameplayActions
         {
             onHeavyAttack?.Invoke();
         }
+    }
+
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            onDash?.Invoke();
+        }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnQuickSkill(InputAction.CallbackContext context)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnStrongSkill(InputAction.CallbackContext context)
+    {
+        throw new NotImplementedException();
     }
 }
