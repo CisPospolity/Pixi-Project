@@ -67,7 +67,7 @@ namespace PlayerAbilities
             }
         }
 
-        protected IEnumerator PerformDash()
+        protected virtual IEnumerator PerformDash()
         {
             isDashing = true;
             characterMovement.SetDashBool(true);
