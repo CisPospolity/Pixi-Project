@@ -95,6 +95,9 @@ namespace PlayerAbilities
 
     public abstract class QuickSkill : PlayerAbility
     {
+        [SerializeField]
+        protected float abilityCooldown = 5f;
+        protected float nextAbilityTime = 0f;
 
     }
 

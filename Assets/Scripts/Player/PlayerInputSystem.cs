@@ -25,6 +25,7 @@ public class PlayerInputSystem : MonoBehaviour, PlayerControls.IGameplayActions
     public event Action onHeavyAttack;
     public event Action onJump;
     public event Action onDash;
+    public event Action onQuickSkill;
 
     public void OnMovement(InputAction.CallbackContext context)
     {
@@ -89,7 +90,10 @@ public class PlayerInputSystem : MonoBehaviour, PlayerControls.IGameplayActions
 
     public void OnQuickSkill(InputAction.CallbackContext context)
     {
-        throw new NotImplementedException();
+        if (context.performed)
+        {
+            onQuickSkill?.Invoke();
+        }
     }
 
     public void OnStrongSkill(InputAction.CallbackContext context)
