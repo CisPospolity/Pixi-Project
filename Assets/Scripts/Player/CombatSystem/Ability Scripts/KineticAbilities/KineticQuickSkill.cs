@@ -10,6 +10,10 @@ public class KineticQuickSkill : QuickSkill
     protected float coneAngle = 45f;
     [SerializeField]
     protected float damage = 2f;
+    [SerializeField]
+    protected ImmobilizingDebuff debuff = null;
+    [SerializeField]
+    protected float knockbackStrength = 10f;
 
     protected override void Awake()
     {
@@ -25,6 +29,11 @@ public class KineticQuickSkill : QuickSkill
             {
                 Destroy(this);
             }
+        }
+
+        if(debuff == null || debuff.Duration <= 0f)
+        {
+            debuff = new ImmobilizingDebuff(1f);
         }
     }
 
@@ -42,6 +51,14 @@ public class KineticQuickSkill : QuickSkill
                 if (Vector3.Angle(transform.forward, directionToEnemy) < coneAngle / 2)
                 {
                     hitCollider.GetComponent<IDamageable>().Damage(damage);
+
+                    if(hitCollider.GetComponent<EnemyScript>() != null)
+                    {
+                        hitCollider.GetComponent<EnemyScript>().PushEnemy(debuff, directionToEnemy * knockbackStrength, "KineticQuickSkill");
+                    } else if(hitCollider.GetComponent<Rigidbody>() != null)
+                    {
+                        hitCollider.GetComponent<Rigidbody>().AddForce(directionToEnemy * knockbackStrength, ForceMode.VelocityChange);
+                    }
                 }
             }
 
