@@ -27,6 +27,9 @@ public class PlayerInputSystem : MonoBehaviour, PlayerControls.IGameplayActions
     public event Action onDash;
     public event Action onQuickSkill;
 
+
+    public event Action onInteract;
+
     public void OnMovement(InputAction.CallbackContext context)
     {
         onMovement?.Invoke(context.ReadValue<Vector2>());
@@ -85,7 +88,10 @@ public class PlayerInputSystem : MonoBehaviour, PlayerControls.IGameplayActions
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        throw new NotImplementedException();
+       if(context.performed)
+        {
+            onInteract?.Invoke();
+        }
     }
 
     public void OnQuickSkill(InputAction.CallbackContext context)
