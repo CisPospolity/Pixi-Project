@@ -52,10 +52,10 @@ public class BuffDebuffManager
             default:
                 break;
         }
-        if (!buffsAndDebuffs.ContainsKey(id) || buffsAndDebuffs[id].StartTime + buffsAndDebuffs[id].Duration < Time.time)
+        if (!buffsAndDebuffs.ContainsKey(id))
         {
             // If the modifier does not exist or has already expired, add a new one
-            buffsAndDebuffs[id] = buffOrDebuff;
+            buffsAndDebuffs.Add(id, buffOrDebuff);
         }
         else
         {

@@ -46,15 +46,20 @@ public class KineticQuickSkill : QuickSkill
             foreach(var hitCollider in hitEnemies)
             {
                 if (hitCollider.gameObject == this.gameObject) continue;
-                if (hitCollider.GetComponent<IDamageable>() == null) continue;
                 Vector3 directionToEnemy = (hitCollider.transform.position - transform.position).normalized;
                 if (Vector3.Angle(transform.forward, directionToEnemy) < coneAngle / 2)
                 {
-                    hitCollider.GetComponent<IDamageable>().Damage(damage);
+
+                    if (hitCollider.GetComponent<IDamageable>() != null)
+                    {
+                        hitCollider.GetComponent<IDamageable>().Damage(damage);
+                    }
+                    
 
                     if(hitCollider.GetComponent<EnemyScript>() != null)
                     {
-                        hitCollider.GetComponent<EnemyScript>().PushEnemy(debuff, directionToEnemy * knockbackStrength, "KineticQuickSkill");
+                        directionToEnemy.y = 0;
+                        hitCollider.GetComponent<EnemyScript>().PushEnemy(debuff, directionToEnemy * knockbackStrength + new Vector3(0,1.5f,0), "KineticQuickSkill");
                     } else if(hitCollider.GetComponent<Rigidbody>() != null)
                     {
                         hitCollider.GetComponent<Rigidbody>().AddForce(directionToEnemy * knockbackStrength, ForceMode.VelocityChange);

@@ -25,6 +25,8 @@ public class CharacterMovement : MonoBehaviour
     private float gravity = 24f;
     [SerializeField]
     private Vector3 playerVelocity = Vector3.zero;
+    [SerializeField]
+    private float groundCheckLength = 1f;
 
     private bool isDashing = false;
     #endregion
@@ -162,8 +164,19 @@ public class CharacterMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (!characterController.isGrounded) return;
+        if (!CheckGround()) return;
 
         playerVelocity.y += Mathf.Sqrt(jumpHeight * 2f * gravity);
+    }
+
+    private bool CheckGround()
+    {
+        return Physics.Raycast(new Ray(transform.position, Vector3.down), groundCheckLength);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * groundCheckLength);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(NavMeshAgent))]
-public class EnemyScript : MonoBehaviour, IDamageable
+public abstract class EnemyScript : MonoBehaviour, IDamageable
 {
     [SerializeField]
     protected float health = 5;
@@ -17,7 +17,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
     protected NavMeshAgent agent;
     protected Rigidbody enemyRigidbody;
 
-    private void Start()
+    private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         enemyRigidbody = GetComponent<Rigidbody>();
@@ -34,13 +34,20 @@ public class EnemyScript : MonoBehaviour, IDamageable
         bool immobilized = buffDebuffManager.HasSpecificDebuff<ImmobilizingDebuff>();
         if(immobilized)
         {
-            enemyRigidbody.isKinematic = false;
             agent.enabled = false;
-        } else if(isGrounded())
-        {
             enemyRigidbody.isKinematic = false;
-            agent.enabled = false;
+            return;
         }
+        
+        if(IsGrounded())
+        {
+            enemyRigidbody.isKinematic = true;
+            agent.enabled = true;
+        }
+    }
+
+    public bool GetIfImmobilized() { 
+        return buffDebuffManager.HasSpecificDebuff<ImmobilizingDebuff>();
     }
 
     public void PushEnemy(ImmobilizingDebuff debuff, Vector3 direction, string debuffId)
@@ -51,9 +58,9 @@ public class EnemyScript : MonoBehaviour, IDamageable
         enemyRigidbody.AddForce(direction, ForceMode.VelocityChange);
     } 
 
-    public bool isGrounded()
+    public bool IsGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, groundCheckDistance);
+        return Physics.Raycast(transform.position, Vector3.down, groundCheckDistance);
     }
 
     public virtual void Damage(float damage)
@@ -68,6 +75,11 @@ public class EnemyScript : MonoBehaviour, IDamageable
     public virtual void Die()
     {
 
+    }
+
+    public virtual Transform FindPlayer()
+    {
+        return null;
     }
 
     protected void OnDrawGizmosSelected()

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 namespace BehaviourTree
 {
@@ -15,7 +14,7 @@ namespace BehaviourTree
         protected NodeState state;
 
         public Node parent;
-        protected List<Node> children;
+        protected List<Node> children = new List<Node>();
 
         private Dictionary<string, object> dataContext = new Dictionary<string, object>();
 
@@ -26,6 +25,7 @@ namespace BehaviourTree
 
         public Node(List<Node> children)
         {
+            parent = null;
             foreach(Node child in children)
             {
                 Attach(child);
