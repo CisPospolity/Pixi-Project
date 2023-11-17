@@ -41,6 +41,7 @@ public class KineticQuickSkill : QuickSkill
     {
         if (Time.time >= nextAbilityTime)
         {
+            debuff.StartTime = Time.time;
             Collider[] hitEnemies = Physics.OverlapSphere(transform.position, range);
 
             foreach(var hitCollider in hitEnemies)
@@ -59,7 +60,7 @@ public class KineticQuickSkill : QuickSkill
                     if(hitCollider.GetComponent<EnemyScript>() != null)
                     {
                         directionToEnemy.y = 0;
-                        hitCollider.GetComponent<EnemyScript>().PushEnemy(debuff, directionToEnemy * knockbackStrength + new Vector3(0,1.5f,0), "KineticQuickSkill");
+                        hitCollider.GetComponent<EnemyScript>().PushEnemy(debuff, directionToEnemy * knockbackStrength + new Vector3(0,3f,0), "KineticQuickSkill");
                     } else if(hitCollider.GetComponent<Rigidbody>() != null)
                     {
                         hitCollider.GetComponent<Rigidbody>().AddForce(directionToEnemy * knockbackStrength, ForceMode.VelocityChange);

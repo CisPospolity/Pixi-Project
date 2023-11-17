@@ -17,16 +17,86 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
     protected NavMeshAgent agent;
     protected Rigidbody enemyRigidbody;
 
+    protected Animator animator;
+
+    private float jumpStartTime;
+    private bool jumping = false;
+    private float journeyLength;
+    private Vector3 endPos;
+    float jumpHeight = 1f;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         enemyRigidbody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         buffDebuffManager.EvaluateBuffAndDebuffs();
         CheckForImmobilizing();
+        DisableAutoTraverse();
+    }
+
+    protected virtual void DisableAutoTraverse()
+    {
+        /*if (agent.isOnOffMeshLink)
+        {
+            OffMeshLinkData data = agent.currentOffMeshLinkData;
+            if(!jumping)
+            {
+                endPos = data.endPos + Vector3.up * agent.baseOffset;
+                jumping = true;
+                jumpStartTime = Time.time;
+                journeyLength = Vector3.Distance(data.startPos, endPos);
+
+                jumpHeight = Mathf.Abs(endPos.y - agent.transform.position.y) + 1f;
+            }
+
+            //calculate the final point of the link
+
+            float distCovered = (Time.time - jumpStartTime) * agent.speed;
+            float fractionOfJourney = distCovered / journeyLength;
+            Vector3 newPos = Vector3.MoveTowards(agent.transform.position, new Vector3(endPos.x, agent.transform.position.y, endPos.z), agent.speed * Time.deltaTime);
+
+            float y = Mathf.Sin(Mathf.PI * fractionOfJourney) * jumpHeight;
+            newPos.y = Mathf.Lerp(agent.transform.position.y, endPos.y, fractionOfJourney) + y;
+            //Move the agent to the end point
+            agent.transform.position = newPos;
+
+            //when the agent reach the end point you should tell it, and the agent will "exit" the link and work normally after that
+            if (Vector3.Distance(agent.transform.position, endPos) < 0.1f)
+            {
+                agent.CompleteOffMeshLink();
+                jumping = false;
+            }
+        }*/
+
+        if (agent.isOnOffMeshLink)
+        {
+                animator.SetBool("isJumping", true);
+            if(!jumping)
+            {
+                jumping = true;
+            }
+            OffMeshLinkData data = agent.currentOffMeshLinkData;
+
+            //calculate the final point of the link
+            Vector3 endPos = data.endPos + Vector3.up * agent.baseOffset;
+
+            //Move the agent to the end point
+            agent.transform.position = Vector3.MoveTowards(agent.transform.position, endPos, agent.speed * Time.deltaTime);
+
+            //when the agent reach the end point you should tell it, and the agent will "exit" the link and work normally after that
+            if (Vector3.Distance(agent.transform.position, endPos) < 0.1f)
+            {
+                agent.CompleteOffMeshLink();
+                jumping = false;
+                animator.SetBool("isJumping", false);
+
+            }
+        }
     }
 
     protected void CheckForImmobilizing()
@@ -34,15 +104,25 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
         bool immobilized = buffDebuffManager.HasSpecificDebuff<ImmobilizingDebuff>();
         if(immobilized)
         {
-            agent.enabled = false;
+
             enemyRigidbody.isKinematic = false;
+            if(agent.isOnNavMesh)
+            {
+                agent.isStopped = true;
+            }
+            agent.enabled = false;
             return;
         }
         
-        if(IsGrounded())
+        if(IsGrounded() && agent.enabled == false && !immobilized)
         {
             enemyRigidbody.isKinematic = true;
+            
             agent.enabled = true;
+            if (agent.isOnNavMesh)
+            {
+                agent.isStopped = false;
+            }
         }
     }
 
@@ -53,8 +133,9 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
     public void PushEnemy(ImmobilizingDebuff debuff, Vector3 direction, string debuffId)
     {
         buffDebuffManager.AddOrUpdateBuffOrDebuff(debuff, debuffId);
+        agent.enabled = false;
         CheckForImmobilizing();
-
+        
         enemyRigidbody.AddForce(direction, ForceMode.VelocityChange);
     } 
 
