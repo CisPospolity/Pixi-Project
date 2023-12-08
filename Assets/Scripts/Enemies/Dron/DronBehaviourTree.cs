@@ -15,6 +15,11 @@ public class DronBehaviourTree : BehaviourTree.Tree, ISpeedProvider, ITargetTran
         dron=GetComponent<DronEnemy>();
     }
 
+    protected override void Update()
+    {
+        base.Update();
+    }
+
     public float GetSpeed()
     {
         return dron.GetSpeed();
@@ -24,8 +29,21 @@ public class DronBehaviourTree : BehaviourTree.Tree, ISpeedProvider, ITargetTran
     {
         Node root = new Sequence(new List<Node> {
                 new CheckIfStunnedSelector(dron),
-                new FollowPlayerTask(GetComponent<NavMeshAgent>(), animator, this, this)
-                });
+                new Selector(new List<Node> {
+                    new Sequence(new List<Node>
+                    {
+                        new CheckIfTargetInRange(dron, this, ref dron.GetDistanceToExplode()),
+                        new DronExplode(dron, animator, this)
+                    }),
+                    new Selector(new List<Node> {
+                        new Sequence(new List<Node> {
+                            new CheckIfTargetInRange(dron, this, ref dron.GetPlayerRange()),
+                            new FollowPlayerTask(GetComponent<NavMeshAgent>(), animator, this, this)
+                        }),
+                        new StopTask(GetComponent<NavMeshAgent>(), animator)
+                    })
+                })
+        });
 
         return root;
     }

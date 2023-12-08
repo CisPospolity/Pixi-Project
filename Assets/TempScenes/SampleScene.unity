@@ -195,6 +195,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2108540723259440624, guid: 14ecba8535a118848a64371d95cfcb5e,
         type: 3}
+      propertyPath: explosionAnimation
+      value: 
+      objectReference: {fileID: -609035903274105188, guid: 8871dac11b8500b4cb949bdefc0aa53d,
+        type: 3}
+    - target: {fileID: 2108540723259440624, guid: 14ecba8535a118848a64371d95cfcb5e,
+        type: 3}
       propertyPath: groundCheckDistance
       value: 0.14
       objectReference: {fileID: 0}
@@ -271,7 +277,7 @@ PrefabInstance:
     - target: {fileID: 5704671965399034743, guid: 14ecba8535a118848a64371d95cfcb5e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -860,6 +866,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2108540723259440624, guid: 14ecba8535a118848a64371d95cfcb5e,
         type: 3}
+      propertyPath: explosionAnimation
+      value: 
+      objectReference: {fileID: -609035903274105188, guid: 8871dac11b8500b4cb949bdefc0aa53d,
+        type: 3}
+    - target: {fileID: 2108540723259440624, guid: 14ecba8535a118848a64371d95cfcb5e,
+        type: 3}
       propertyPath: groundCheckDistance
       value: 0.14
       objectReference: {fileID: 0}
@@ -936,7 +948,7 @@ PrefabInstance:
     - target: {fileID: 5704671965399034743, guid: 14ecba8535a118848a64371d95cfcb5e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4252,6 +4264,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2108540723259440624, guid: 14ecba8535a118848a64371d95cfcb5e,
         type: 3}
+      propertyPath: explosionAnimation
+      value: 
+      objectReference: {fileID: -609035903274105188, guid: 8871dac11b8500b4cb949bdefc0aa53d,
+        type: 3}
+    - target: {fileID: 2108540723259440624, guid: 14ecba8535a118848a64371d95cfcb5e,
+        type: 3}
       propertyPath: groundCheckDistance
       value: 0.14
       objectReference: {fileID: 0}
@@ -4328,7 +4346,7 @@ PrefabInstance:
     - target: {fileID: 5704671965399034743, guid: 14ecba8535a118848a64371d95cfcb5e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4610,6 +4628,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2108540723259440624, guid: 14ecba8535a118848a64371d95cfcb5e,
         type: 3}
+      propertyPath: explosionAnimation
+      value: 
+      objectReference: {fileID: -609035903274105188, guid: 8871dac11b8500b4cb949bdefc0aa53d,
+        type: 3}
+    - target: {fileID: 2108540723259440624, guid: 14ecba8535a118848a64371d95cfcb5e,
+        type: 3}
       propertyPath: groundCheckDistance
       value: 0.14
       objectReference: {fileID: 0}
@@ -4686,7 +4710,7 @@ PrefabInstance:
     - target: {fileID: 5704671965399034743, guid: 14ecba8535a118848a64371d95cfcb5e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6173,6 +6197,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108540723259440624, guid: 14ecba8535a118848a64371d95cfcb5e,
+        type: 3}
+      propertyPath: explosionAnimation
+      value: 
+      objectReference: {fileID: -609035903274105188, guid: 8871dac11b8500b4cb949bdefc0aa53d,
+        type: 3}
+    - target: {fileID: 2108540723259440624, guid: 14ecba8535a118848a64371d95cfcb5e,
+        type: 3}
+      propertyPath: playerFindingRange
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2108540723259440624, guid: 14ecba8535a118848a64371d95cfcb5e,
         type: 3}

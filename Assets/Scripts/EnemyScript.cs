@@ -99,7 +99,7 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
         }
     }
 
-    protected void CheckForImmobilizing()
+    protected virtual void CheckForImmobilizing()
     {
         bool immobilized = buffDebuffManager.HasSpecificDebuff<ImmobilizingDebuff>();
         if(immobilized)
