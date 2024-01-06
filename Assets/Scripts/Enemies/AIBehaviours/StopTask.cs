@@ -17,7 +17,10 @@ public class StopTask : Node
     public override NodeState Evaluate()
     {
         animator.SetBool("isWalking", false);
-        agent.isStopped = true;
+        if (agent.isOnNavMesh)
+        {
+            agent.isStopped = true;
+        }
         return NodeState.SUCCESS;
     }
 }

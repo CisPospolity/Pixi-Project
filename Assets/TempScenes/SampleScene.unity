@@ -2347,8 +2347,8 @@ GameObject:
   - component: {fileID: 876568724}
   - component: {fileID: 876568719}
   - component: {fileID: 876568718}
-  - component: {fileID: 876568722}
-  - component: {fileID: 876568723}
+  - component: {fileID: 876568725}
+  - component: {fileID: 876568726}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2564,7 +2564,7 @@ MonoBehaviour:
   passiveAbility: {fileID: 0}
   attackPassiveAbility: {fileID: 0}
   dashAbility: {fileID: 0}
-  quickSkill: {fileID: 876568723}
+  quickSkill: {fileID: 876568726}
   strongSkill: {fileID: 0}
 --- !u!114 &876568721
 MonoBehaviour:
@@ -2580,44 +2580,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   maxHealth: 5
---- !u!114 &876568722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 876568709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de3fbdc3a5c20744ea56c677b1379696, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashDistance: 3
-  dashCooldown: 3
-  dashSpeed: 40
-  secondDashWindow: 2
-  postDashSpeedMultiplier: 2
-  speedDecreaseDuration: 1.5
---- !u!114 &876568723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 876568709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b704e151d4a44e4fb09f98a92d021ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilityCooldown: 2
-  range: 10
-  coneAngle: 45
-  damage: 2
-  debuff:
-    type: 1
-    Duration: 5
-  knockbackStrength: 15
 --- !u!114 &876568724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2631,6 +2593,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactUI: {fileID: 0}
+--- !u!114 &876568725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876568709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4712bb8201c9380428018107fd2af1bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashDistance: 5
+  dashCooldown: 1
+  dashSpeed: 20
+  baseShieldValue: 2
+  shieldValue: 0
+  shieldDuration: 5
+--- !u!114 &876568726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876568709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43dd4d3c1d67e1949ba2850508f49661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityCooldown: 0.1
+  magneticProjectile: {fileID: 7101820627987436770, guid: da8e913835c5c7843ac57f1e0746000b,
+    type: 3}
+  projectileDamage: 2
+  offsetFromPlayer: {x: 0, y: 3.5, z: 2}
+  projectileSpeed: 50
+  pullRadius: 10
+  debug_offsetGizmo: 1
 --- !u!1 &881678960
 GameObject:
   m_ObjectHideFlags: 3
@@ -6198,22 +6198,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 2108540723259440624, guid: 14ecba8535a118848a64371d95cfcb5e,
-        type: 3}
-      propertyPath: explosionAnimation
-      value: 
-      objectReference: {fileID: -609035903274105188, guid: 8871dac11b8500b4cb949bdefc0aa53d,
-        type: 3}
-    - target: {fileID: 2108540723259440624, guid: 14ecba8535a118848a64371d95cfcb5e,
-        type: 3}
-      propertyPath: playerFindingRange
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2108540723259440624, guid: 14ecba8535a118848a64371d95cfcb5e,
-        type: 3}
-      propertyPath: groundCheckDistance
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 3181221421582171158, guid: 14ecba8535a118848a64371d95cfcb5e,
         type: 3}
       propertyPath: m_BaseOffset
@@ -6294,6 +6278,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14ecba8535a118848a64371d95cfcb5e, type: 3}
+--- !u!1001 &7886636948424784822
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1659463246339033498, guid: da8e913835c5c7843ac57f1e0746000b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659463246339033498, guid: da8e913835c5c7843ac57f1e0746000b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659463246339033498, guid: da8e913835c5c7843ac57f1e0746000b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659463246339033498, guid: da8e913835c5c7843ac57f1e0746000b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659463246339033498, guid: da8e913835c5c7843ac57f1e0746000b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659463246339033498, guid: da8e913835c5c7843ac57f1e0746000b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659463246339033498, guid: da8e913835c5c7843ac57f1e0746000b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659463246339033498, guid: da8e913835c5c7843ac57f1e0746000b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659463246339033498, guid: da8e913835c5c7843ac57f1e0746000b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659463246339033498, guid: da8e913835c5c7843ac57f1e0746000b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101820627987436770, guid: da8e913835c5c7843ac57f1e0746000b,
+        type: 3}
+      propertyPath: m_Name
+      value: MagneticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101820627987436770, guid: da8e913835c5c7843ac57f1e0746000b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da8e913835c5c7843ac57f1e0746000b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -6311,3 +6368,4 @@ SceneRoots:
   - {fileID: 1448388808}
   - {fileID: 4373516}
   - {fileID: 113288195}
+  - {fileID: 7886636948424784822}
