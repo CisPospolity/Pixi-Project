@@ -144,7 +144,7 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
         return Physics.Raycast(transform.position, Vector3.down, groundCheckDistance);
     }
 
-    public virtual void Damage(float damage)
+    public virtual void Damage(int damage)
     {
         health -= damage;
         if(health < 0)
@@ -163,7 +163,7 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
         return null;
     }
 
-    protected void OnDrawGizmosSelected()
+    protected virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue; // Choose a color that is visible and distinct
         Vector3 start = transform.position;

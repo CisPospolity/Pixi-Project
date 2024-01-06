@@ -9,7 +9,7 @@ public class KineticQuickSkill : QuickSkill
     [SerializeField]
     protected float coneAngle = 45f;
     [SerializeField]
-    protected float damage = 2f;
+    protected int damage = 2;
     [SerializeField]
     protected ImmobilizingDebuff debuff = null;
     [SerializeField]

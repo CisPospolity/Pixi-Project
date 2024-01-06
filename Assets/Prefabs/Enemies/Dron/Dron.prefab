@@ -236,9 +236,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   maxHealth: 5
-  groundCheckDistance: 0.3
+  groundCheckDistance: 0.2
   speed: 5
   playerFindingRange: 20
+  distanceToExplode: 5
+  explosionRange: 10
+  explosionAnimation: {fileID: -609035903274105188, guid: 8871dac11b8500b4cb949bdefc0aa53d,
+    type: 3}
+  explosionDamage: 1
 --- !u!114 &5130937794864373825
 MonoBehaviour:
   m_ObjectHideFlags: 0

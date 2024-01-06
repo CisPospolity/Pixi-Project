@@ -15,6 +15,8 @@ public class DronEnemy : EnemyScript
     private float explosionRange = 10f;
     [SerializeField]
     private AnimationClip explosionAnimation;
+    [SerializeField]
+    private int explosionDamage;
 
     private bool isExploding = false;
     public float GetSpeed()
@@ -35,7 +37,7 @@ public class DronEnemy : EnemyScript
         return null;
     }
 
-    public override void Damage(float damage)
+    public override void Damage(int damage)
     {
         base.Damage(damage);
         GetComponent<Animator>().SetTrigger("gotHit");
@@ -70,6 +72,16 @@ public class DronEnemy : EnemyScript
         GetComponent<NavMeshAgent>().enabled = false;
         animator.SetTrigger("explode");
         yield return new WaitForSeconds(explosionAnimation.averageDuration);
+
+        Collider[] hits = Physics.OverlapSphere(transform.position, explosionRange);
+        foreach(var hit in hits)
+        {
+            if(hit.GetComponent<IDamageable>() != null)
+            {
+                hit.GetComponent<IDamageable>().Damage(explosionDamage);
+            }
+        }
+
         Destroy(gameObject);
     }
 
@@ -77,5 +89,13 @@ public class DronEnemy : EnemyScript
     {
         if (isExploding) return;
         base.CheckForImmobilizing();
+    }
+
+    protected override void OnDrawGizmosSelected()
+    {
+        base.OnDrawGizmosSelected();
+        Gizmos.color = Color.red; // Choose a color that is visible and distinct
+
+        Gizmos.DrawWireSphere(transform.position, explosionRange);
     }
 }

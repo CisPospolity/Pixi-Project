@@ -6,7 +6,7 @@ public class DummyEnemy : EnemyScript
 {
     [SerializeField]
     private bool debugMode = false;
-    public override void Damage(float damage)
+    public override void Damage(int damage)
     {
         base.Damage(damage);
         if (debugMode)
