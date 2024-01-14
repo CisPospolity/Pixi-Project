@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -137,7 +138,12 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
         CheckForImmobilizing();
         
         enemyRigidbody.AddForce(direction, ForceMode.VelocityChange);
-    } 
+    }
+
+    public void AddBuffOrDebuff(BuffDebuff effect, string effectID)
+    {
+        buffDebuffManager.AddOrUpdateBuffOrDebuff(effect, effectID);
+    }
 
     public bool IsGrounded()
     {
