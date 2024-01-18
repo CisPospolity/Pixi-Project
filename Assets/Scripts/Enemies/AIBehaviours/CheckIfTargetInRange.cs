@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using BehaviourTree;
@@ -7,8 +8,8 @@ public class CheckIfTargetInRange : Node
 {
     private EnemyScript enemy;
     private ITargetTransformProvider targetTransformProvider;
-    private float distanceToCheck;
-    public CheckIfTargetInRange(EnemyScript enemy, ITargetTransformProvider transformProvider, ref float distance)
+    private Func<float> distanceToCheck;
+    public CheckIfTargetInRange(EnemyScript enemy, ITargetTransformProvider transformProvider, Func<float> distance)
     {
         this.enemy = enemy;
         targetTransformProvider = transformProvider;
@@ -20,7 +21,7 @@ public class CheckIfTargetInRange : Node
         Transform target = targetTransformProvider.GetTargetTransform();
         if (target == null) return NodeState.FAILURE;
         float distance = Vector3.Distance(enemy.transform.position, target.position);
-        if (distance <= distanceToCheck)
+        if (distance <= distanceToCheck())
         {
             state = NodeState.SUCCESS;
         }

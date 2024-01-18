@@ -26,6 +26,15 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
     private Vector3 endPos;
     float jumpHeight = 1f;
 
+    [SerializeField]
+    private bool canBePushed = true;
+    [SerializeField]
+    private bool canBeImmobilized = true;
+
+
+    [SerializeField]
+    protected float speed = 5f;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -102,6 +111,7 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
 
     protected virtual void CheckForImmobilizing()
     {
+        if (!canBeImmobilized) return;
         bool immobilized = buffDebuffManager.HasSpecificDebuff<ImmobilizingDebuff>();
         if(immobilized)
         {
@@ -136,8 +146,11 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
         buffDebuffManager.AddOrUpdateBuffOrDebuff(debuff, debuffId);
         agent.enabled = false;
         CheckForImmobilizing();
-        
-        enemyRigidbody.AddForce(direction, ForceMode.VelocityChange);
+
+        if (canBePushed)
+        {
+            enemyRigidbody.AddForce(direction, ForceMode.VelocityChange);
+        }
     }
 
     public void AddBuffOrDebuff(BuffDebuff effect, string effectID)
@@ -167,6 +180,12 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
     public virtual Transform FindPlayer()
     {
         return null;
+    }
+
+
+    public virtual float GetSpeed()
+    {
+        return speed;
     }
 
     protected virtual void OnDrawGizmosSelected()

@@ -6,8 +6,6 @@ using UnityEngine.AI;
 public class DronEnemy : EnemyScript
 {
     [SerializeField]
-    private float speed = 5f;
-    [SerializeField]
     private float playerFindingRange = 25f;
     [SerializeField]
     private float distanceToExplode = 5f;
@@ -19,10 +17,6 @@ public class DronEnemy : EnemyScript
     private int explosionDamage;
 
     private bool isExploding = false;
-    public float GetSpeed()
-    {
-        return speed;
-    }
 
     public override Transform FindPlayer()
     {
