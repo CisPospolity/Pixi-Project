@@ -26,6 +26,7 @@ public class PlayerInputSystem : MonoBehaviour, PlayerControls.IGameplayActions
     public event Action onJump;
     public event Action onDash;
     public event Action onQuickSkill;
+    public event Action onStrongSkill;
 
 
     public event Action onInteract;
@@ -104,6 +105,9 @@ public class PlayerInputSystem : MonoBehaviour, PlayerControls.IGameplayActions
 
     public void OnStrongSkill(InputAction.CallbackContext context)
     {
-        throw new NotImplementedException();
+        if(context.performed)
+        {
+            onStrongSkill?.Invoke();
+        }
     }
 }

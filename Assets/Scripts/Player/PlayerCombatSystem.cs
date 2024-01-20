@@ -32,6 +32,7 @@ public class PlayerCombatSystem : MonoBehaviour
 
         playerInputSystem.onDash += DashSkill;
         playerInputSystem.onQuickSkill += QuickSkill;
+        playerInputSystem.onStrongSkill += StrongSkill;
     }
 
     public void LightAttack()
@@ -73,6 +74,19 @@ public class PlayerCombatSystem : MonoBehaviour
     public QuickSkill GetQuickSkill()
     {
         return quickSkill;
+    }
+
+    public void StrongSkill()
+    {
+        if (strongSkill != null)
+        {
+            strongSkill.Execute();
+        }
+    }
+
+    public StrongSkill GetStrongSkill()
+    {
+        return strongSkill;
     }
 
     public void SetExistingQuickSkill(QuickSkill qs)

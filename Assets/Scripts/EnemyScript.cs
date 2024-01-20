@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -34,6 +35,8 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
 
     [SerializeField]
     protected float speed = 5f;
+
+    public event Action<Collision> onCollide;
 
     private void Awake()
     {
@@ -138,7 +141,7 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
     }
 
     public bool GetIfImmobilized() { 
-        return buffDebuffManager.HasSpecificDebuff<ImmobilizingDebuff>();
+        return buffDebuffManager.HasSpecificDebuffWithout<ImmobilizingDebuff, KnockbackDebuff>();
     }
 
     public void PushEnemy(ImmobilizingDebuff debuff, Vector3 direction, string debuffId)
@@ -196,5 +199,10 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
 
         // Draw a line representing the ground check ray
         Gizmos.DrawLine(start, end);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        onCollide?.Invoke(collision);
     }
 }
