@@ -84,4 +84,9 @@ public class BuffDebuffManager
         return buffsAndDebuffs.Values.OfType<T>().Any();
     }
 
+    public bool HasSpecificDebuffWithout<T, U>() where T : BuffDebuff where U : T
+    {
+        return buffsAndDebuffs.Values.OfType<T>().Any(buff => buff is T &&!(buff is U));
+    }
+
 }

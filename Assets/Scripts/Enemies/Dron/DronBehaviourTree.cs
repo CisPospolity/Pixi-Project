@@ -32,12 +32,12 @@ public class DronBehaviourTree : BehaviourTree.Tree, ISpeedProvider, ITargetTran
                 new Selector(new List<Node> {
                     new Sequence(new List<Node>
                     {
-                        new CheckIfTargetInRange(dron, this, ref dron.GetDistanceToExplode()),
+                        new CheckIfTargetInRange(dron, this, () => dron.GetDistanceToExplode()),
                         new DronExplode(dron, animator, this)
                     }),
                     new Selector(new List<Node> {
                         new Sequence(new List<Node> {
-                            new CheckIfTargetInRange(dron, this, ref dron.GetPlayerRange()),
+                            new CheckIfTargetInRange(dron, this, () => dron.GetPlayerRange()),
                             new FollowPlayerTask(GetComponent<NavMeshAgent>(), animator, this, this)
                         }),
                         new StopTask(GetComponent<NavMeshAgent>(), animator)

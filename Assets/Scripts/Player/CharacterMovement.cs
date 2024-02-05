@@ -11,6 +11,7 @@ public class CharacterMovement : MonoBehaviour
 
     #region Movement
     private Vector2 movementVector;
+    [SerializeField]
     private Vector2 rotation;
     [SerializeField]
     private float controllerDeadzone = 0.1f;
@@ -98,7 +99,6 @@ public class CharacterMovement : MonoBehaviour
         speedMultiplier = speedModifierManager.CurrentSpeedMultiplier;
 
         PlayerMovement();
-        RotatePlayer();
     }
 
     private void RotatePlayer()
@@ -114,7 +114,8 @@ public class CharacterMovement : MonoBehaviour
                 if (playerDir.sqrMagnitude > 0)
                 {
                     Quaternion newRot = Quaternion.LookRotation(playerDir, Vector3.up);
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, newRot, 1000f * Time.deltaTime);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, newRot, 1000f);
+
                 }
             }
         } else
@@ -157,9 +158,15 @@ public class CharacterMovement : MonoBehaviour
         movementVector = dir;
     }
 
+    public Vector2 GetRotation()
+    {
+        return rotation;
+    }
+
     private void RotationHandler(Vector2 rot)
     {
         rotation = rot;
+        RotatePlayer();
     }
 
     private void Jump()
