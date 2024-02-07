@@ -44,7 +44,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.791763, b: 0.57254905, a: 1}
+  m_Color: {r: 0.572327, g: 1, b: 0.8760368, a: 1}
   m_Intensity: 27.91
   m_Range: 7.05
   m_SpotAngle: 30
@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8910613106712715786}
   m_Layer: 0
-  m_Name: PR_Shroom_3_Red
+  m_Name: PR_Shroom_3_Blue 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,11 +209,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: 5d34466389ad0074591e32b4dbb84de5,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: bf160be3345d8e04daac45a6e6c8877d, type: 2}
     - target: {fileID: 919132149155446097, guid: 5d34466389ad0074591e32b4dbb84de5,
         type: 3}
       propertyPath: m_Name

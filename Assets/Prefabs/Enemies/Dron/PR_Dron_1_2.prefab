@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2368302927811648320}
   - component: {fileID: 184498977232402958}
   m_Layer: 0
-  m_Name: PR_Dron_1_1
+  m_Name: PR_Dron_1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,8 +32,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8362567843169573570}
   m_Father: {fileID: 0}
@@ -106,8 +106,8 @@ MonoBehaviour:
   canBeImmobilized: 1
   speed: 5
   playerFindingRange: 20
-  distanceToExplode: 1.5
-  explosionRange: 2
+  distanceToExplode: 2
+  explosionRange: 3
   explosionAnimation: {fileID: -2802892219379233996, guid: 9e053d83d9bc11d48bccecfbe44eb4ff,
     type: 3}
   explosionDamage: 1
@@ -226,6 +226,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e053d83d9bc11d48bccecfbe44eb4ff,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2183612424280255752, guid: 9e053d83d9bc11d48bccecfbe44eb4ff,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1504cd4a0af1b814598e9bd7abbf8a81, type: 2}
+    - target: {fileID: -2183612424280255752, guid: 9e053d83d9bc11d48bccecfbe44eb4ff,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d784a5da66cd99f44b2c019900faed91, type: 2}
+    - target: {fileID: -2183612424280255752, guid: 9e053d83d9bc11d48bccecfbe44eb4ff,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2f06b1923f41aa74b94a3e3ea6ef2fcf, type: 2}
     - target: {fileID: 919132149155446097, guid: 9e053d83d9bc11d48bccecfbe44eb4ff,
         type: 3}
       propertyPath: m_Name
