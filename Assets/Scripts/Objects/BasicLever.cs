@@ -11,7 +11,7 @@ public class BasicLever : Interactable
     {
         animator = GetComponent<Animator>();
     }
-    public override void Interact(PlayerScript interacter)
+    public override void Interact(PlayerInteractables interacter)
     {
         turnedOn = !turnedOn;
         animator.SetBool("turnedOn", turnedOn);

@@ -31,8 +31,10 @@ public class DronAttack : Node
         }
 
         animator.SetBool("isWalking", false);
-
-        agent.isStopped = true;
+        if (agent.isOnNavMesh)
+        {
+            agent.isStopped = true;
+        }
         if (!isAttacking)
         {
             animator.SetTrigger("Attack");

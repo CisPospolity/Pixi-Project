@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    void Interact(PlayerScript interactor);
+    void Interact(PlayerInteractables interactor);
     bool CanInteract();
     GameObject GetGameObject();
     Vector3 GetPositionForUI();

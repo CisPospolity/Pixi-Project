@@ -14,22 +14,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     /// <summary>
     /// Interact with object
     /// </summary>
-    public abstract void Interact(PlayerScript interacter);
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<PlayerInteractables>() != null)
-        {
-            other.GetComponent<PlayerInteractables>().AddInteractable(this);
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.GetComponent<PlayerInteractables>() != null)
-        {
-            other.GetComponent<PlayerInteractables>().RemoveInteractable(this);
-        }
-    }
+    public abstract void Interact(PlayerInteractables interacter);
 
 
     /// <returns>If object is interactable</returns>

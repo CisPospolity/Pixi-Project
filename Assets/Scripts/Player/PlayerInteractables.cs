@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerScript))]
 public class PlayerInteractables : MonoBehaviour
 {
-
-    private PlayerScript playerScript;
-    private PlayerInputSystem playerInputSystem;
-
+    [SerializeField]
+    private float interactRadius = 10f;
+    [SerializeField]
+    private LayerMask mask;
+    private PlayerInputSystem inputSystem;
     //List of Interactable objects nearby
     [SerializeField]
     private List<IInteractable> interactables = new List<IInteractable>();
@@ -16,27 +16,49 @@ public class PlayerInteractables : MonoBehaviour
     [SerializeField]
     private GameObject interactUI;
 
-    private void Awake()
+    private void Start()
     {
-        playerScript = GetComponent<PlayerScript>();
-        playerInputSystem = GetComponent<PlayerInputSystem>();
-
-        playerInputSystem.onInteract += Interact;
+        inputSystem = GetComponent<PlayerInputSystem>();
+        inputSystem.onInteract += Interact;
+        InvokeRepeating("CheckForInteractables", 0f, 0.2f);
     }
 
+    /// <summary>
+    /// Add Interactable to list
+    /// </summary>
+    /// <param name="interactable"></param>
     public void AddInteractable(IInteractable interactable)
     {
         interactables.Add(interactable);
     }
 
+    /// <summary>
+    /// Remove Interactable from list
+    /// </summary>
+    /// <param name="interactable"></param>
     public void RemoveInteractable(IInteractable interactable)
     {
         interactables.Remove(interactable);
     }
 
+
+
     private void Update()
     {
         SetUI();
+    }
+
+    private void CheckForInteractables()
+    {
+        interactables.Clear();
+        Collider[] cols = Physics.OverlapSphere(transform.position, interactRadius, mask, QueryTriggerInteraction.Collide);
+        foreach (var col in cols)
+        {
+            if (col.GetComponent<IInteractable>() != null)
+            {
+                interactables.Add(col.GetComponent<IInteractable>());
+            }
+        }
     }
 
     private IInteractable GetClosestInteractable()
@@ -45,15 +67,26 @@ public class PlayerInteractables : MonoBehaviour
         {
             IInteractable closest = null;
             float closestDistance = float.MaxValue;
+
+            List<IInteractable> invalidInteractables = new List<IInteractable>();
+
             foreach (IInteractable interactable in interactables)
             {
                 if (!interactable.CanInteract()) continue;
+                if (interactable.GetGameObject() == null) { invalidInteractables.Add(interactable); continue; }
+
                 if (Vector3.Distance(gameObject.transform.position, interactable.GetGameObject().transform.position) < closestDistance)
                 {
                     closest = interactable;
                     closestDistance = Vector3.Distance(gameObject.transform.position, interactable.GetGameObject().transform.position);
                 }
             }
+
+            for (int i = 0; i < invalidInteractables.Count; i++)
+            {
+                interactables.Remove(invalidInteractables[i]);
+            }
+
             return closest;
         }
         return null;
@@ -64,13 +97,14 @@ public class PlayerInteractables : MonoBehaviour
         IInteractable closest = GetClosestInteractable();
         if (closest == null) return;
 
-        closest.Interact(playerScript);
+        closest.Interact(this);
     }
 
     //Set UI Element above Interactable
     private void SetUI()
     {
         if (interactUI == null) return;
+
         IInteractable closest = GetClosestInteractable();
         if (closest == null)
         {
