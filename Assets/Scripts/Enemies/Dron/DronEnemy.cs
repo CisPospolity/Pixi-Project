@@ -44,7 +44,7 @@ public class DronEnemy : EnemyScript
     public override void Damage(int damage)
     {
         base.Damage(damage);
-        GetComponent<Animator>().SetTrigger("gotHit");
+        animator.SetTrigger("gotHit");
     }
 
     public ref float GetPlayerRange()
