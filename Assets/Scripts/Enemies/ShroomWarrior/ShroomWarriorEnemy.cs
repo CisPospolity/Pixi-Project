@@ -36,6 +36,17 @@ public class ShroomWarriorEnemy : EnemyScript
         return null;
     }
 
+    public override void Damage(int damage)
+    {
+        base.Damage(damage);
+        animator.SetTrigger("gotHit");
+    }
+
+    protected override void CheckForImmobilizing()
+    {
+        base.CheckForImmobilizing();
+    }
+
     public float GetMeleeAttackRange()
     {
         return meleeAttackRange;
