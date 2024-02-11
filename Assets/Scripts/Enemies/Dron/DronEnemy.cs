@@ -3,21 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(LineRenderer))]
 public class DronEnemy : EnemyScript
 {
     [SerializeField]
     private float playerFindingRange = 25f;
     [SerializeField]
-    private float distanceToExplode = 5f;
+    private float distanceToAttack = 10f;
+    [SerializeField]
+    private float attackTime = 1f;
     [SerializeField]
     private float explosionRange = 10f;
     [SerializeField]
-    private AnimationClip explosionAnimation;
+    private int laserDamage;
+    private LineRenderer lineRenderer;
     [SerializeField]
-    private int explosionDamage;
+    private Transform eye;
 
-    private bool isExploding = false;
+    private float laserPrep = 0.5f;
 
+
+    private void Start()
+    {
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.enabled = false;
+    }
     public override Transform FindPlayer()
     {
         Collider[] cols = Physics.OverlapSphere(transform.position, playerFindingRange);
@@ -42,46 +52,48 @@ public class DronEnemy : EnemyScript
         return ref playerFindingRange;
     }
 
-    public ref float GetDistanceToExplode()
+    public ref float GetDistanceToAttack()
     {
-        return ref distanceToExplode;
+        return ref distanceToAttack;
     }
 
-    public void Explode()
+    public ref float GetAttackTimer()
     {
-        if(!isExploding)
+        return ref attackTime;
+    }
+
+    public void Attack()
+    {
+        StartCoroutine(AttackCoroutine());
+    }
+
+    IEnumerator AttackCoroutine()
+    {
+        Transform player = FindPlayer();
+        var pos = player.transform.position;
+        yield return new WaitForSeconds(laserPrep);
+        lineRenderer.enabled = true;
+
+        RaycastHit hit;
+        if(Physics.Raycast(new Ray(eye.position, pos - transform.position), out hit))
         {
-            isExploding = true;
-            StartCoroutine(Explosion());
-        }
-    }
-
-    public bool GetIsExploding()
-    {
-        return isExploding;
-    }
-
-    private IEnumerator Explosion()
-    {
-        GetComponent<NavMeshAgent>().enabled = false;
-        animator.SetTrigger("explode");
-        yield return new WaitForSeconds(explosionAnimation.averageDuration);
-
-        Collider[] hits = Physics.OverlapSphere(transform.position, explosionRange);
-        foreach(var hit in hits)
-        {
-            if(hit.GetComponent<IDamageable>() != null)
+            lineRenderer.SetPositions(new Vector3[] { eye.position, hit.point});
+            if(hit.transform == player)
             {
-                hit.GetComponent<IDamageable>().Damage(explosionDamage);
+                player.GetComponent<PlayerScript>().ApplyDamage(laserDamage);
             }
-        }
+        } else
+        {
+            lineRenderer.SetPositions(new Vector3[] { eye.position, eye.position+ (pos - eye.position)*100f});
 
-        Destroy(gameObject);
+        }
+        yield return new WaitForSeconds(0.2f);
+        lineRenderer.enabled = false;
+
     }
 
     protected override void CheckForImmobilizing()
     {
-        if (isExploding) return;
         base.CheckForImmobilizing();
     }
 

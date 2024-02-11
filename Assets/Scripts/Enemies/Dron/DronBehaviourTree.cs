@@ -32,8 +32,8 @@ public class DronBehaviourTree : BehaviourTree.Tree, ISpeedProvider, ITargetTran
                 new Selector(new List<Node> {
                     new Sequence(new List<Node>
                     {
-                        new CheckIfTargetInRange(dron, this, () => dron.GetDistanceToExplode()),
-                        new DronExplode(dron, animator, this)
+                        new CheckIfTargetInRange(dron, this, () => dron.GetDistanceToAttack()),
+                        new DronAttack(dron, animator, () => dron.GetAttackTimer(), () => GetTargetTransform(), GetComponent<NavMeshAgent>())
                     }),
                     new Selector(new List<Node> {
                         new Sequence(new List<Node> {
