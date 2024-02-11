@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9e053d83d9bc11d48bccecfbe44eb4ff
+guid: aac2b8a986433274cbf175175fd35683
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -39,159 +39,14 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Dron_1_arm|Attack_1
-      takeName: Dron_1_arm|Attack_1
-      internalID: -2802892219379233996
-      firstFrame: 0
-      lastFrame: 29
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Dron_1_arm|Hit
-      takeName: Dron_1_arm|Hit
-      internalID: 9196021433907899598
-      firstFrame: 0
-      lastFrame: 19
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Dron_1_arm|Idle
-      takeName: Dron_1_arm|Idle
-      internalID: 3052785673534842815
-      firstFrame: 0
-      lastFrame: 39
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Dron_1_arm|Jump
-      takeName: Dron_1_arm|Jump
-      internalID: 289709007453978492
-      firstFrame: 0
-      lastFrame: 25
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Dron_1_arm|Walk
-      takeName: Dron_1_arm|Walk
-      internalID: -6521842640758698945
-      firstFrame: 0
-      lastFrame: 23
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -242,132 +97,7 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton:
-    - name: OBJ_Dron_1(Clone)
-      parentName: 
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Dron_1
-      parentName: OBJ_Dron_1(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-      scale: {x: 0.21756843, y: 0.21756843, z: 0.21756843}
-    - name: Dron_1_arm
-      parentName: OBJ_Dron_1(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-      scale: {x: 21.756845, y: 21.756845, z: 21.756845}
-    - name: spine0
-      parentName: Dron_1_arm
-      position: {x: -0, y: 0, z: 0.024043052}
-      rotation: {x: 0.7691158, y: 0.36917934, z: -0.3691794, w: 0.36861095}
-      scale: {x: 1, y: 1, z: 1}
-    - name: frontleg1.L
-      parentName: spine0
-      position: {x: -0.003596971, y: -0.00015044927, z: 0.002331947}
-      rotation: {x: 0.14162457, y: 0.11403056, z: 0.78286046, w: 0.59503704}
-      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000002}
-    - name: frontlleg2.L
-      parentName: frontleg1.L
-      position: {x: 0.000000002477318, y: 0.0026883008, z: 0}
-      rotation: {x: 0.25067905, y: -0.06534361, z: -0.046646398, w: 0.9647354}
-      scale: {x: 1.0000005, y: 1.0000002, z: 1}
-    - name: frontlleg3.L
-      parentName: frontlleg2.L
-      position: {x: -6.705522e-10, y: 0.0026352804, z: -0.0000000010244549}
-      rotation: {x: -0.12795612, y: 0.020350978, z: -0.06350287, w: 0.9895355}
-      scale: {x: 0.9999996, y: 1.0000001, z: 0.99999976}
-    - name: frontleg4.L
-      parentName: frontlleg3.L
-      position: {x: 0.0000000019278377, y: 0.0027168542, z: 2.7939676e-10}
-      rotation: {x: -0.0019795923, y: -0.007438064, z: 0.57607985, w: 0.8173572}
-      scale: {x: 1, y: 0.99999994, z: 0.9999998}
-    - name: backleg1.L
-      parentName: spine0
-      position: {x: -0.0035993953, y: -0.00015044927, z: -0.0023314713}
-      rotation: {x: 0.93329847, y: -0.3553792, z: -0.022811113, w: 0.046253588}
-      scale: {x: 1, y: 1.0000002, z: 1}
-    - name: backleg2.L
-      parentName: backleg1.L
-      position: {x: -0.0000000029057263, y: 0.0026882994, z: 2.9802322e-10}
-      rotation: {x: -0.1254107, y: -0.6850848, z: -0.017368805, w: 0.7173767}
-      scale: {x: 0.99999964, y: 1.0000001, z: 0.9999999}
-    - name: backleg3.L
-      parentName: backleg2.L
-      position: {x: 2.9802322e-10, y: 0.0026352792, z: 9.313226e-10}
-      rotation: {x: 0.033555713, y: -0.38748938, z: 0.03281158, w: 0.92067873}
-      scale: {x: 0.9999998, y: 1.0000002, z: 0.9999999}
-    - name: backleg4.L
-      parentName: backleg3.L
-      position: {x: 0.000000001490116, y: 0.002716853, z: 0.0000000011920929}
-      rotation: {x: -0.24174328, y: 0.68959486, z: -0.4965723, w: -0.4684391}
-      scale: {x: 0.9999996, y: 1, z: 0.9999997}
-    - name: frontleg1.R
-      parentName: spine0
-      position: {x: 0.003596971, y: -0.00015044927, z: 0.002331947}
-      rotation: {x: 0.14162457, y: -0.11403056, z: -0.78286046, w: 0.59503704}
-      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000002}
-    - name: frontlleg2.R
-      parentName: frontleg1.R
-      position: {x: -0.000000002477318, y: 0.0026883008, z: 0}
-      rotation: {x: 0.25067905, y: 0.06534361, z: 0.046646398, w: 0.9647354}
-      scale: {x: 1.0000005, y: 1.0000002, z: 1}
-    - name: frontlleg3.R
-      parentName: frontlleg2.R
-      position: {x: 6.705522e-10, y: 0.0026352804, z: -0.0000000010244549}
-      rotation: {x: -0.12795612, y: -0.020350978, z: 0.06350287, w: 0.9895355}
-      scale: {x: 0.9999996, y: 1.0000001, z: 0.99999976}
-    - name: frontleg4.R
-      parentName: frontlleg3.R
-      position: {x: -0.0000000019278377, y: 0.0027168542, z: 2.7939676e-10}
-      rotation: {x: -0.0019795923, y: 0.007438064, z: -0.57607985, w: 0.8173572}
-      scale: {x: 1, y: 0.99999994, z: 0.9999998}
-    - name: backleg1.R
-      parentName: spine0
-      position: {x: 0.0035993953, y: -0.00015044927, z: -0.0023314713}
-      rotation: {x: 0.4075011, y: 0.86140025, z: -0.070023224, w: -0.29500705}
-      scale: {x: 1, y: 1.0000002, z: 1}
-    - name: backleg2.R
-      parentName: backleg1.R
-      position: {x: 0.0000000029057263, y: 0.0026882994, z: 2.9802322e-10}
-      rotation: {x: 0.1314584, y: 0.70782745, z: -0.03330827, w: 0.69324577}
-      scale: {x: 0.99999964, y: 1.0000001, z: 0.9999999}
-    - name: backleg3.R
-      parentName: backleg2.R
-      position: {x: -2.9802322e-10, y: 0.0026352792, z: 9.313226e-10}
-      rotation: {x: 0.06153314, y: 0.3850166, z: -0.028227946, w: 0.92042327}
-      scale: {x: 0.9999998, y: 1.0000002, z: 0.9999999}
-    - name: backleg4.R
-      parentName: backleg3.R
-      position: {x: -0.000000001490116, y: 0.002716853, z: 0.0000000011920929}
-      rotation: {x: 0.24174328, y: 0.68959486, z: -0.4965723, w: 0.4684391}
-      scale: {x: 0.9999996, y: 1, z: 0.9999997}
-    - name: backlegControler.L
-      parentName: Dron_1_arm
-      position: {x: -0.016208846, y: 0.011187831, z: 0.00009015322}
-      rotation: {x: 0.48491612, y: -0.20085879, z: 0.7863904, w: 0.32573348}
-      scale: {x: 0.47897753, y: 0.47897744, z: 0.47897753}
-    - name: frontlegControler.L
-      parentName: Dron_1_arm
-      position: {x: -0.015608021, y: -0.010823354, z: 0.000090153575}
-      rotation: {x: 0.39790365, y: -0.16481696, z: 0.8338023, w: 0.34537196}
-      scale: {x: 0.47897744, y: 0.4789774, z: 0.47897744}
-    - name: Root
-      parentName: Dron_1_arm
-      position: {x: -0, y: 0.003941967, z: 0}
-      rotation: {x: 1, y: -8.7329664e-15, z: 0.00000019470718, w: 0.00000004371139}
-      scale: {x: 1, y: 1, z: 1}
-    - name: frontlegControler.R
-      parentName: Dron_1_arm
-      position: {x: 0.015534031, y: -0.010843007, z: 0.000090153575}
-      rotation: {x: -0.39790365, y: -0.16481696, z: 0.8338023, w: -0.34537196}
-      scale: {x: 0.47897744, y: 0.4789774, z: 0.47897744}
-    - name: backlegControler.R
-      parentName: Dron_1_arm
-      position: {x: 0.016208846, y: 0.011187831, z: 0.00009015322}
-      rotation: {x: -0.48491612, y: -0.20085879, z: 0.7863904, w: -0.32573348}
-      scale: {x: 0.47897753, y: 0.47897744, z: 0.47897753}
+    skeleton: []
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -378,13 +108,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
