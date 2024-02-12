@@ -30,7 +30,7 @@ public class RunnerBehaviourTree : BehaviourTree.Tree, ISpeedProvider, ITargetTr
     protected override Node SetupTree()
     {
         Node root = new Sequence(new List<Node> {
-                new GoToPositionTask(agent, () => runnerEnemy.GetActiveWaypoint(), this),
+                new GoToPositionTask(agent, () => runnerEnemy.GetActiveWaypoint(), GetComponent<Animator>(),  this),
                 new Sequence(new List<Node>
                 {
                     new CheckIfTargetInRange(runnerEnemy, this, ()=> runnerEnemy.GetDistanceUntilRun()),

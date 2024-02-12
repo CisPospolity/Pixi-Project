@@ -11,28 +11,46 @@ public class GoToPositionTask : Node
     private Func<Transform> newPos;
 
     private ISpeedProvider speedProvider;
+    private Animator animator;
+    private bool isMoving = false;
 
-    public GoToPositionTask(NavMeshAgent agent, Func<Transform> targetPos, ISpeedProvider speedProvider)
+    public GoToPositionTask(NavMeshAgent agent, Func<Transform> targetPos, Animator animator, ISpeedProvider speedProvider)
     {
         this.agent = agent;
         newPos = targetPos;
+        this.animator = animator;
         this.speedProvider = speedProvider;
     }
 
     public override NodeState Evaluate()
     {
-        if (newPos() == null) return NodeState.SUCCESS;
+        var pos = newPos();
+        if (pos == null) return NodeState.FAILURE;
 
-        agent.SetDestination(newPos().position);
-        if(agent.remainingDistance > 0.05f)
+        if (!isMoving)
         {
-            
-            agent.speed = speedProvider.GetSpeed();
+            agent.SetDestination(pos.position);
+            isMoving = true;
             return NodeState.FAILURE;
         }
 
-        return NodeState.SUCCESS;
+        if (agent.remainingDistance > 0.2f && Vector3.Distance(agent.transform.position, pos.position) > 0.2f)
+        {
+            agent.isStopped = false;
+            animator.SetBool("isWalking", true);
+            agent.speed = speedProvider.GetSpeed();
+            return NodeState.FAILURE;
+        } else
+        {
+            animator.SetBool("isWalking", false);
+            if(agent.isOnNavMesh)
+            {
+                agent.isStopped = true;
+            }
+            isMoving = false;
 
+            return NodeState.SUCCESS;
+        }
 
     }
 }

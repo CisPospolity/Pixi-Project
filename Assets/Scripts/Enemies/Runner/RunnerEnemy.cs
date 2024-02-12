@@ -50,9 +50,12 @@ public class RunnerEnemy : EnemyScript
             var previous = GetPreviousWaypoint();
 
             var nextDistToPlayer = Vector3.Distance(FindPlayer().position, next.position);
+            Debug.Log("Distance to next " + next.name + ": " + nextDistToPlayer);
             var prevDistToPlayer = Vector3.Distance(FindPlayer().position, previous.position);
+            Debug.Log("Distance to prev " + previous.name + ": " + prevDistToPlayer);
 
-            if(nextDistToPlayer>= prevDistToPlayer)
+
+            if (nextDistToPlayer>= prevDistToPlayer)
             {
                 activeWaypoint = next;
                 if (waypointIndex == waypoints.Count - 1)
