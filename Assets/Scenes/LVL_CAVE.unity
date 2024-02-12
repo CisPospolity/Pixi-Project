@@ -4264,7 +4264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196579691}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.43039253, y: 0.000000047136872, z: -0.000000022475536, w: 0.90264183}
+  m_LocalRotation: {x: 0.4303925, y: -0.0000000071359465, z: 0.000000003402523, w: 0.90264183}
   m_LocalPosition: {x: 131.83, y: 27.68, z: 100.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4912,6 +4912,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef72cc70fb7de154c8e09c6fcec9bfbc, type: 3}
+--- !u!4 &211543992 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6320686151804221624, guid: ef72cc70fb7de154c8e09c6fcec9bfbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 211543991}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &214204320 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5695427446754548709, guid: 8bcf41a2cda391f42929480325766d6a,
@@ -24151,12 +24157,10 @@ Transform:
   - {fileID: 2123420811}
   - {fileID: 441086838}
   - {fileID: 2037593916}
-  - {fileID: 759041873}
   - {fileID: 704108526}
   - {fileID: 1816991267}
   - {fileID: 1113176046}
   - {fileID: 813644968}
-  - {fileID: 965294071}
   - {fileID: 6446826}
   - {fileID: 1592759546}
   - {fileID: 72352447}
@@ -24173,7 +24177,6 @@ Transform:
   - {fileID: 1016274223}
   - {fileID: 1583675456}
   - {fileID: 1221910874}
-  - {fileID: 1514758352}
   - {fileID: 1865360634}
   - {fileID: 1699867787}
   - {fileID: 1016762812}
@@ -24210,6 +24213,9 @@ Transform:
   - {fileID: 612600353}
   - {fileID: 395516653}
   - {fileID: 1060860663}
+  - {fileID: 211543992}
+  - {fileID: 1806409028}
+  - {fileID: 1243857025}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1116721726 stripped
@@ -27167,6 +27173,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71cbaaa9536cfed4795f308709e72005, type: 3}
+--- !u!4 &1243857025 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 769597170755295371, guid: 71cbaaa9536cfed4795f308709e72005,
+    type: 3}
+  m_PrefabInstance: {fileID: 1243857024}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1244093099 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3923190971568704920, guid: 605afc451c3db164796ec9dc48ee556c,
@@ -39794,7 +39806,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768951096}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.43039253, y: 0.000000047136872, z: -0.000000022475536, w: 0.90264183}
+  m_LocalRotation: {x: 0.4303925, y: -0.0000000071359465, z: 0.000000003402523, w: 0.90264183}
   m_LocalPosition: {x: 131.83, y: 27.68, z: 100.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -40779,6 +40791,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f352c6b69a4ddbd49b0813485f8aad34, type: 3}
+--- !u!4 &1806409028 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8910613106712715786, guid: f352c6b69a4ddbd49b0813485f8aad34,
+    type: 3}
+  m_PrefabInstance: {fileID: 1806409027}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1811081211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 769597170755295371, guid: 71cbaaa9536cfed4795f308709e72005,
@@ -49251,26 +49269,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bcf41a2cda391f42929480325766d6a, type: 3}
-    - target: {fileID: 6185429052429448456, guid: 09a2938e93067014bba574d0de62501b,
-        type: 3}
-      propertyPath: m_Height
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185429052429448456, guid: 09a2938e93067014bba574d0de62501b,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8275622906714334879, guid: 09a2938e93067014bba574d0de62501b,
-        type: 3}
-      propertyPath: health
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8275622906714334879, guid: 09a2938e93067014bba574d0de62501b,
-        type: 3}
-      propertyPath: maxHealth
-      value: 5
-      objectReference: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -49303,3 +49301,6 @@ SceneRoots:
   - {fileID: 1714493521}
   - {fileID: 13561488}
   - {fileID: 1978105254}
+  - {fileID: 210121076}
+  - {fileID: 896733419}
+  - {fileID: 965364935}
