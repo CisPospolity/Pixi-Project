@@ -3,22 +3,7 @@ guid: b8efbf3a97049b94a83501b2ece323f0
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Emission
-    second: {fileID: 2100000, guid: e17799ec96b05be46bb6f71713527ce8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Generator
-    second: {fileID: 2100000, guid: 9e3d1c82b4850804584e11386bef3ca6, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Shroom_Generator
-    second: {fileID: 2100000, guid: c76f9ded0bc38e7488861d3a608a0b0d, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
