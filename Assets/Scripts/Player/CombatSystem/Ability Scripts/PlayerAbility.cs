@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +30,7 @@ namespace PlayerAbilities
     {
         protected CharacterController characterController;
         protected CharacterMovement characterMovement;
+        protected Animator animator;
 
         [SerializeField]
         protected float dashDistance = 5f;
@@ -57,6 +59,7 @@ namespace PlayerAbilities
 
             characterController = GetComponent<CharacterController>();
             characterMovement = GetComponent<CharacterMovement>();
+            animator = GetComponent<Animator>();
         }
 
         public override void Execute()
@@ -70,6 +73,7 @@ namespace PlayerAbilities
         protected virtual IEnumerator PerformDash()
         {
             isDashing = true;
+            PlayAnimation();
             characterMovement.SetDashBool(true);
             characterMovement.ResetHeightVelocity();
             Vector3 dashDirection = characterMovement.GetRelativeMovementVector().normalized;
@@ -89,7 +93,18 @@ namespace PlayerAbilities
 
             nextDashTime = Time.time + dashCooldown;
             isDashing = false;
+            StopAnimation();
             characterMovement.SetDashBool(false);
+        }
+
+        protected virtual void PlayAnimation()
+        {
+            animator.SetBool("isDashing", true);
+        }
+
+        protected virtual void StopAnimation()
+        {
+            animator.SetBool("isDashing", false);
         }
     }
 

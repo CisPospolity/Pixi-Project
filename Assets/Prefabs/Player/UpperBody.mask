@@ -1,0 +1,269 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UpperBody
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Arm.L
+    m_Weight: 1
+  - m_Path: Arm.R
+    m_Weight: 1
+  - m_Path: Leg.L
+    m_Weight: 1
+  - m_Path: Leg.R
+    m_Weight: 1
+  - m_Path: MC_RIGG
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Body_bottom
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.L
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.L/Leg_02.L
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.L/Leg_02.L/Leg_03.L
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.L/Leg_02.L/Leg_03.L/Leg_04.L
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.L/Leg_02.L/Leg_03.L/Leg_04.L/Leg_05.L
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.L/Leg_02.L/Leg_03.L/Leg_04.L/Leg_05.L/Leg_06.L
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.L/Leg_02.L/Leg_03.L/Leg_04.L/Leg_05.L/Leg_06.L/Leg_07.L
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.L/Leg_02.L/Leg_03.L/Leg_04.L/Leg_05.L/Leg_06.L/Leg_07.L/Leg_08.L
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.L/Leg_02.L/Leg_03.L/Leg_04.L/Leg_05.L/Leg_06.L/Leg_07.L/Leg_08.L/Feet.L
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.R
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.R/Leg_02.R
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.R/Leg_02.R/Leg_03.R
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.R/Leg_02.R/Leg_03.R/Leg_04.R
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.R/Leg_02.R/Leg_03.R/Leg_04.R/Leg_05.R
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.R/Leg_02.R/Leg_03.R/Leg_04.R/Leg_05.R/Leg_06.R
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.R/Leg_02.R/Leg_03.R/Leg_04.R/Leg_05.R/Leg_06.R/Leg_07.R
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.R/Leg_02.R/Leg_03.R/Leg_04.R/Leg_05.R/Leg_06.R/Leg_07.R/Leg_08.R
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Bottom/Leg_01.R/Leg_02.R/Leg_03.R/Leg_04.R/Leg_05.R/Leg_06.R/Leg_07.R/Leg_08.R/Feet.R
+    m_Weight: 0
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Fingel_Mid_01.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Fingel_Mid_01.L/Fingel_Mid_02.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Fingel_Mid_01.L/Fingel_Mid_02.L/Finger_02_Mid.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Fingel_Mid_01.L/Finger_01_Mid.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Fingel_Pinky_01.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Fingel_Pinky_01.L/Fingel_Pinky_02.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Fingel_Pinky_01.L/Fingel_Pinky_02.L/Finger_02_Pink.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Fingel_Pinky_01.L/Finger_01_Pink.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Fingel_Ring_01.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Fingel_Ring_01.L/Fingel_Ring_02.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Fingel_Ring_01.L/Fingel_Ring_02.L/Finger_02_Ring.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Fingel_Ring_01.L/Finger_01_Ring.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Hand.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Thumb_01.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Thumb_01.L/Thumb_01.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Thumb_01.L/Thumb_02.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.L/Arm_02.L/Arm_03.L/Arm_04.L/Arm_05.L/Arm_06.L/Arm_07.L/Arm_08.L/Arm_09.L/Arm_10.L/Arm_11.L/Hand.L/Thumb_01.L/Thumb_02.L/Thumb_02.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Fingel_Mid_01.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Fingel_Mid_01.R/Fingel_Mid_02.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Fingel_Mid_01.R/Fingel_Mid_02.R/Finger_02_Mid.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Fingel_Mid_01.R/Finger_01_Mid.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Fingel_Pinky_01.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Fingel_Pinky_01.R/Fingel_Pinky_02.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Fingel_Pinky_01.R/Fingel_Pinky_02.R/Finger_02_Pink.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Fingel_Pinky_01.R/Finger_01_Pink.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Fingel_Ring_01.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Fingel_Ring_01.R/Fingel_Ring_02.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Fingel_Ring_01.R/Fingel_Ring_02.R/Finger_02_Ring.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Fingel_Ring_01.R/Finger_01_Ring.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Hand.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Thumb_01.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Thumb_01.R/Thumb_01.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Thumb_01.R/Thumb_02.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01.R/Arm_02.R/Arm_03.R/Arm_04.R/Arm_05.R/Arm_06.R/Arm_07.R/Arm_08.R/Arm_09.R/Arm_10.R/Arm_11.R/Hand.R/Thumb_01.R/Thumb_02.R/Thumb_02.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.L/Arm_02_MECH.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.L/Arm_02_MECH.L/Arm_03_MECH.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.L/Arm_02_MECH.L/Arm_03_MECH.L/Arm_04_MECH.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.L/Arm_02_MECH.L/Arm_03_MECH.L/Arm_04_MECH.L/Arm_05_MECH.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.L/Arm_02_MECH.L/Arm_03_MECH.L/Arm_04_MECH.L/Arm_05_MECH.L/Arm_06_MECH.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.L/Arm_02_MECH.L/Arm_03_MECH.L/Arm_04_MECH.L/Arm_05_MECH.L/Arm_06_MECH.L/Arm_07_MECH.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.L/Arm_02_MECH.L/Arm_03_MECH.L/Arm_04_MECH.L/Arm_05_MECH.L/Arm_06_MECH.L/Arm_07_MECH.L/Arm_08_MECH.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.L/Arm_02_MECH.L/Arm_03_MECH.L/Arm_04_MECH.L/Arm_05_MECH.L/Arm_06_MECH.L/Arm_07_MECH.L/Arm_08_MECH.L/Arm_09_MECH.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.L/Arm_02_MECH.L/Arm_03_MECH.L/Arm_04_MECH.L/Arm_05_MECH.L/Arm_06_MECH.L/Arm_07_MECH.L/Arm_08_MECH.L/Arm_09_MECH.L/Arm_10_MECH.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.L/Arm_02_MECH.L/Arm_03_MECH.L/Arm_04_MECH.L/Arm_05_MECH.L/Arm_06_MECH.L/Arm_07_MECH.L/Arm_08_MECH.L/Arm_09_MECH.L/Arm_10_MECH.L/Arm_11_MECH.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.L/Arm_02_MECH.L/Arm_03_MECH.L/Arm_04_MECH.L/Arm_05_MECH.L/Arm_06_MECH.L/Arm_07_MECH.L/Arm_08_MECH.L/Arm_09_MECH.L/Arm_10_MECH.L/Arm_11_MECH.L/Hand_MECH.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.L/Arm_02_MECH.L/Arm_03_MECH.L/Arm_04_MECH.L/Arm_05_MECH.L/Arm_06_MECH.L/Arm_07_MECH.L/Arm_08_MECH.L/Arm_09_MECH.L/Arm_10_MECH.L/Arm_11_MECH.L/Hand_MECH.L/Fingel_Mid_CONTROLER.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.L/Arm_02_MECH.L/Arm_03_MECH.L/Arm_04_MECH.L/Arm_05_MECH.L/Arm_06_MECH.L/Arm_07_MECH.L/Arm_08_MECH.L/Arm_09_MECH.L/Arm_10_MECH.L/Arm_11_MECH.L/Hand_MECH.L/Fingel_Pinky_CONTROLER.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.L/Arm_02_MECH.L/Arm_03_MECH.L/Arm_04_MECH.L/Arm_05_MECH.L/Arm_06_MECH.L/Arm_07_MECH.L/Arm_08_MECH.L/Arm_09_MECH.L/Arm_10_MECH.L/Arm_11_MECH.L/Hand_MECH.L/Fingel_Ring_CONTROLER.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.L/Arm_02_MECH.L/Arm_03_MECH.L/Arm_04_MECH.L/Arm_05_MECH.L/Arm_06_MECH.L/Arm_07_MECH.L/Arm_08_MECH.L/Arm_09_MECH.L/Arm_10_MECH.L/Arm_11_MECH.L/Hand_MECH.L/Thumb_CONTROLER.L
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.R/Arm_02_MECH.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.R/Arm_02_MECH.R/Arm_03_MECH.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.R/Arm_02_MECH.R/Arm_03_MECH.R/Arm_04_MECH.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.R/Arm_02_MECH.R/Arm_03_MECH.R/Arm_04_MECH.R/Arm_05_MECH.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.R/Arm_02_MECH.R/Arm_03_MECH.R/Arm_04_MECH.R/Arm_05_MECH.R/Arm_06_MECH.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.R/Arm_02_MECH.R/Arm_03_MECH.R/Arm_04_MECH.R/Arm_05_MECH.R/Arm_06_MECH.R/Arm_07_MECH.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.R/Arm_02_MECH.R/Arm_03_MECH.R/Arm_04_MECH.R/Arm_05_MECH.R/Arm_06_MECH.R/Arm_07_MECH.R/Arm_08_MECH.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.R/Arm_02_MECH.R/Arm_03_MECH.R/Arm_04_MECH.R/Arm_05_MECH.R/Arm_06_MECH.R/Arm_07_MECH.R/Arm_08_MECH.R/Arm_09_MECH.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.R/Arm_02_MECH.R/Arm_03_MECH.R/Arm_04_MECH.R/Arm_05_MECH.R/Arm_06_MECH.R/Arm_07_MECH.R/Arm_08_MECH.R/Arm_09_MECH.R/Arm_10_MECH.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.R/Arm_02_MECH.R/Arm_03_MECH.R/Arm_04_MECH.R/Arm_05_MECH.R/Arm_06_MECH.R/Arm_07_MECH.R/Arm_08_MECH.R/Arm_09_MECH.R/Arm_10_MECH.R/Arm_11_MECH.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.R/Arm_02_MECH.R/Arm_03_MECH.R/Arm_04_MECH.R/Arm_05_MECH.R/Arm_06_MECH.R/Arm_07_MECH.R/Arm_08_MECH.R/Arm_09_MECH.R/Arm_10_MECH.R/Arm_11_MECH.R/Hand_MECH.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.R/Arm_02_MECH.R/Arm_03_MECH.R/Arm_04_MECH.R/Arm_05_MECH.R/Arm_06_MECH.R/Arm_07_MECH.R/Arm_08_MECH.R/Arm_09_MECH.R/Arm_10_MECH.R/Arm_11_MECH.R/Hand_MECH.R/Fingel_Mid_CONTROLER.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.R/Arm_02_MECH.R/Arm_03_MECH.R/Arm_04_MECH.R/Arm_05_MECH.R/Arm_06_MECH.R/Arm_07_MECH.R/Arm_08_MECH.R/Arm_09_MECH.R/Arm_10_MECH.R/Arm_11_MECH.R/Hand_MECH.R/Fingel_Pinky_CONTROLER.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.R/Arm_02_MECH.R/Arm_03_MECH.R/Arm_04_MECH.R/Arm_05_MECH.R/Arm_06_MECH.R/Arm_07_MECH.R/Arm_08_MECH.R/Arm_09_MECH.R/Arm_10_MECH.R/Arm_11_MECH.R/Hand_MECH.R/Fingel_Ring_CONTROLER.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Arm_01_MECH.R/Arm_02_MECH.R/Arm_03_MECH.R/Arm_04_MECH.R/Arm_05_MECH.R/Arm_06_MECH.R/Arm_07_MECH.R/Arm_08_MECH.R/Arm_09_MECH.R/Arm_10_MECH.R/Arm_11_MECH.R/Hand_MECH.R/Thumb_CONTROLER.R
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Body_top
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Heart
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Key
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Key/Key
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Body_Top/Shoulders
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Head
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Head/Chimney
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Head/Ears
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Head/Eyes
+    m_Weight: 1
+  - m_Path: MC_RIGG/Root_CONTROLER/Body_CONTROLER/Head/Head
+    m_Weight: 1

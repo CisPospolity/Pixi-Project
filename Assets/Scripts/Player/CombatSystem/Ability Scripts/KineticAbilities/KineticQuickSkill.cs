@@ -41,6 +41,7 @@ public class KineticQuickSkill : QuickSkill
     {
         if (Time.time >= nextAbilityTime)
         {
+            GetComponent<Animator>().SetTrigger("KineticQuickSkill");
             debuff.StartTime = Time.time;
             Collider[] hitEnemies = Physics.OverlapSphere(transform.position, range);
 

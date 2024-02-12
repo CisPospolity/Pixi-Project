@@ -8,7 +8,7 @@ public class CharacterMovement : MonoBehaviour
 {
     private CharacterController characterController;
     private PlayerInputSystem playerInputSystem;
-
+    private Animator animator;
     #region Movement
     private Vector2 movementVector;
     [SerializeField]
@@ -76,6 +76,7 @@ public class CharacterMovement : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         playerInputSystem = GetComponent<PlayerInputSystem>();
+        animator = GetComponent<Animator>();
     }
     // Start is called before the first frame update
     void Start()
@@ -147,6 +148,19 @@ public class CharacterMovement : MonoBehaviour
         rightDir = rightDir.normalized;
         rightDir = rightDir * movementVector.x;
         Vector3 moveDir = (forwardDir + rightDir) * speed * speedMultiplier * Time.deltaTime;
+
+        float forwardBackwardFloat = Vector3.Dot(transform.forward, moveDir);
+        forwardBackwardFloat = (forwardBackwardFloat > 0) ? 1f : -1f;
+
+        if (moveDir != Vector3.zero)
+        {
+            animator.SetBool("isWalking", true);
+            animator.SetFloat("MovementDir", forwardBackwardFloat);
+        } else
+        {
+            animator.SetBool("isWalking", false);
+
+        }
         characterController.Move(moveDir);
 
         playerVelocity.y -= gravity * Time.deltaTime;
@@ -172,7 +186,7 @@ public class CharacterMovement : MonoBehaviour
     private void Jump()
     {
         if (!CheckGround()) return;
-
+        animator.SetTrigger("Jump");
         playerVelocity.y += Mathf.Sqrt(jumpHeight * 2f * gravity);
     }
 

@@ -16,6 +16,7 @@ public class KineticStrongSkill : StrongSkill
     private int onWallHitDamage = 5;
     public override void Execute()
     {
+        GetComponent<Animator>().SetTrigger("KineticStrong");
         if (Time.time < nextAbilityTime) return;
         nextAbilityTime = Time.time + abilityCooldown;
 

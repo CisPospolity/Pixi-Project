@@ -40,4 +40,17 @@ public class KineticDash : DashAbility
             Gizmos.DrawWireSphere(transform.position+knockbackOffset, knockbackRadius);
         }
     }
+
+    protected override void PlayAnimation()
+    {
+        base.PlayAnimation();
+        animator.SetBool("isKineticDash", true);
+    }
+
+    protected override void StopAnimation()
+    {
+        base.StopAnimation();
+        animator.SetBool("isKineticDash", false);
+
+    }
 }
