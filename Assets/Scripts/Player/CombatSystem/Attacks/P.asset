@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: P
   m_EditorClassIdentifier: 
   attackName: 
-  type: 1
-  lockOutTime: 1
-  maxNextComboTime: 2
-  command: P
+  type: 0
+  lockOutTime: 0.2
+  maxNextComboTime: 0.5
+  command: 

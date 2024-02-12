@@ -7,12 +7,12 @@ public class DebugAttack : Attack
 {
     [SerializeField]
     private string command = "";
-    public override void InputAttack()
+    public override void InputAttack(BoxCollider hitbox = null)
     {
         Debug.Log(command);
     }
 
-    public override void UseAttack()
+    public override void UseAttack(BoxCollider hitbox = null)
     {
         throw new System.NotImplementedException();
     }
