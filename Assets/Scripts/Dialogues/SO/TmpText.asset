@@ -14,10 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Bob
   paragraphs:
-  - Tej
-  - "Dialogi dzia\u0142aj\u0105, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-  - 'Y
-
-    A
-
-    Y'
+  - "Ma\u0142y grzyb ukrad\u0142 mi generator."
+  - "Zanjd\u017A go."

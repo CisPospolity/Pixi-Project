@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a961d74772d643d459398fd64e5e207f, type: 3}
   m_Name: LeftSpam
   m_EditorClassIdentifier: 
-  comboName: 
+  comboName: Left
   comboAttacks:
   - {fileID: 11400000, guid: 941b468932197df4f85db269925146bc, type: 2}
   - {fileID: 11400000, guid: 9a583e850ee074943b9168e268c5fed2, type: 2}
-  - {fileID: 11400000, guid: e3dd2f2f75fbb8c45aa3efe20568a1e5, type: 2}

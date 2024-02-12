@@ -33,6 +33,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     /// <returns>Position where UI should appear</returns>
     public Vector3 GetPositionForUI()
     {
+        if (uiHolder == null) return Vector3.zero;
         return uiHolder.position;
     }
 }

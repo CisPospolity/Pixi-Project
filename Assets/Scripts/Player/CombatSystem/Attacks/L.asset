@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f75325678a4b6a34389cbd99ffda5b0b, type: 3}
   m_Name: L
   m_EditorClassIdentifier: 
-  attackName: 
+  attackName: AA1
   type: 0
   lockOutTime: 1
+  hitboxTime: 0.2
   maxNextComboTime: 2
+  colliderName: 
+  triggerName: 
   command: L
