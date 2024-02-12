@@ -3,7 +3,17 @@ guid: dd9ca5f6111a296458eb9e27caa53af8
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shroom_warrior
+    second: {fileID: 2100000, guid: 1dc420ebbc0d5b24d8b834573b0f2f37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shroom_weapon_1
+    second: {fileID: 2100000, guid: c2fa0f2386cdc4445895ac5598cceea3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
