@@ -22,6 +22,8 @@ public class PlayerCombatSystem : MonoBehaviour
     private PlayerInputSystem playerInputSystem;
     private PlayerComboSystem playerComboSystem;
     public event Action<AttackType> onAttack;
+    private bool isDuringAttack = false;
+    private Coroutine queueAttack = null;
     private void Awake()
     {
         playerInputSystem = GetComponent<PlayerInputSystem>();
@@ -47,9 +49,13 @@ public class PlayerCombatSystem : MonoBehaviour
 
     public void DashSkill()
     {
-        if(dashAbility != null)
+        if(dashAbility != null && !isDuringAttack)
         {
+            StartCoroutine(ChangeIfAttacking());
             dashAbility.Execute();
+        } else if(isDuringAttack && queueAttack == null)
+        {
+            queueAttack = StartCoroutine(QueueAttack(DashSkill));
         }
     }
 
@@ -65,9 +71,15 @@ public class PlayerCombatSystem : MonoBehaviour
 
     public void QuickSkill()
     {
-        if (quickSkill != null)
+        if (quickSkill != null && !isDuringAttack)
         {
+            StartCoroutine(ChangeIfAttacking());
+
             quickSkill.Execute();
+        }
+        else if (isDuringAttack && queueAttack == null)
+        {
+            queueAttack = StartCoroutine(QueueAttack(QuickSkill));
         }
     }
 
@@ -78,9 +90,14 @@ public class PlayerCombatSystem : MonoBehaviour
 
     public void StrongSkill()
     {
-        if (strongSkill != null)
+        if (strongSkill != null && !isDuringAttack)
         {
+            StartCoroutine(ChangeIfAttacking());
             strongSkill.Execute();
+        }
+        else if (isDuringAttack && queueAttack == null)
+        {
+            queueAttack = StartCoroutine(QueueAttack(StrongSkill));
         }
     }
 
@@ -92,6 +109,20 @@ public class PlayerCombatSystem : MonoBehaviour
     public void SetExistingQuickSkill(QuickSkill qs)
     {
         quickSkill = qs;
+    }
+
+    private IEnumerator ChangeIfAttacking()
+    {
+        isDuringAttack = true;
+        yield return new WaitForSeconds(0.5f);
+        isDuringAttack = false;
+    }
+
+    private IEnumerator QueueAttack(Action action)
+    {
+        yield return new WaitUntil(() => !isDuringAttack);
+        action?.Invoke();
+        queueAttack = null;
     }
 
 }
