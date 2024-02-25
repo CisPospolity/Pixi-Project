@@ -27,6 +27,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     /// <returns>This gameObject</returns>
     public GameObject GetGameObject()
     {
+        if(this.gameObject == null) return null;
         return this.gameObject;
     }
 

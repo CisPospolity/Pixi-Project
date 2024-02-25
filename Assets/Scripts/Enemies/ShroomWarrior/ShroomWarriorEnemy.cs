@@ -28,7 +28,7 @@ public class ShroomWarriorEnemy : EnemyScript
         Collider[] cols = Physics.OverlapSphere(transform.position, playerFollowRange);
         foreach (Collider col in cols)
         {
-            if (col.GetComponent<PlayerScript>())
+            if (col.CompareTag("Player"))
             {
                 return col.transform;
             }

@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -37,7 +34,7 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
     protected float speed = 5f;
 
     public event Action<Collision> onCollide;
-
+    public event Action onDeath;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -114,20 +111,21 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
 
     protected virtual void CheckForImmobilizing()
     {
-        if (!canBeImmobilized) return;
         bool immobilized = buffDebuffManager.HasSpecificDebuff<ImmobilizingDebuff>();
-        if(immobilized)
+        if (canBeImmobilized)
         {
-
-            enemyRigidbody.isKinematic = false;
-            if(agent.isOnNavMesh)
+            if (immobilized)
             {
-                agent.isStopped = true;
+
+                enemyRigidbody.isKinematic = false;
+                if (agent.isOnNavMesh)
+                {
+                    agent.isStopped = true;
+                }
+                agent.enabled = false;
+                return;
             }
-            agent.enabled = false;
-            return;
         }
-        
         if(IsGrounded() && agent.enabled == false && !immobilized)
         {
             enemyRigidbody.isKinematic = true;
@@ -177,7 +175,7 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
 
     public virtual void Die()
     {
-
+        onDeath?.Invoke();
     }
 
     public virtual Transform FindPlayer()
@@ -204,5 +202,10 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
     private void OnCollisionEnter(Collision collision)
     {
         onCollide?.Invoke(collision);
+    }
+
+    public bool CanBePushed()
+    {
+        return canBePushed;
     }
 }

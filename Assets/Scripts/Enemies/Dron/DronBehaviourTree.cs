@@ -10,9 +10,12 @@ public class DronBehaviourTree : BehaviourTree.Tree, ISpeedProvider, ITargetTran
     private DronEnemy dron;
     [SerializeField]
     private Animator animator;
+    private NavMeshAgent agent;
     private void Awake()
     {
+        agent = GetComponent<NavMeshAgent>();
         dron=GetComponent<DronEnemy>();
+        animator = GetComponent<Animator>();
     }
 
     protected override void Update()
@@ -28,19 +31,19 @@ public class DronBehaviourTree : BehaviourTree.Tree, ISpeedProvider, ITargetTran
     protected override Node SetupTree()
     {
         Node root = new Sequence(new List<Node> {
-                new CheckIfStunnedSelector(dron),
+                new CheckIfStunnedSelector(dron, animator),
                 new Selector(new List<Node> {
                     new Sequence(new List<Node>
                     {
                         new CheckIfTargetInRange(dron, this, () => dron.GetDistanceToAttack()),
-                        new DronAttack(dron, animator, () => dron.GetAttackTimer(), () => GetTargetTransform(), GetComponent<NavMeshAgent>())
+                        new DronAttack(dron, animator, () => dron.GetAttackTimer(), () => GetTargetTransform(), agent)
                     }),
                     new Selector(new List<Node> {
                         new Sequence(new List<Node> {
                             new CheckIfTargetInRange(dron, this, () => dron.GetPlayerRange()),
-                            new FollowPlayerTask(GetComponent<NavMeshAgent>(), animator, this, this)
+                            new FollowPlayerTask(agent, animator, this, this)
                         }),
-                        new StopTask(GetComponent<NavMeshAgent>(), animator)
+                        new StopTask(agent, animator)
                     })
                 })
         });

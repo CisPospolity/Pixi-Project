@@ -30,7 +30,9 @@ public class KineticStrongSkill : StrongSkill
                 directionToEnemy.y = 0;
                 EnemyScript enemyScript = col.GetComponent<EnemyScript>();
                 enemyScript.PushEnemy(
-                        new KnockbackDebuff(10f, onWallHitDamage, enemyScript.GetComponent<Rigidbody>(), enemyScript),
+                        (enemyScript.CanBePushed()) ?
+                            new KnockbackDebuff(10f, onWallHitDamage, enemyScript.GetComponent<Rigidbody>(), enemyScript) :
+                            new ImmobilizingDebuff(1.5f),
                         directionToEnemy * knockbackStrength + new Vector3(0, 3f, 0),
                         "KineticStrongSkillKnockback"
                 );

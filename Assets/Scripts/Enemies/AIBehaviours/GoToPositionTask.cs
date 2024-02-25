@@ -26,7 +26,7 @@ public class GoToPositionTask : Node
     {
         var pos = newPos();
         if (pos == null) return NodeState.FAILURE;
-
+        if (!agent.enabled) return NodeState.FAILURE;
         if (!isMoving)
         {
             agent.SetDestination(pos.position);

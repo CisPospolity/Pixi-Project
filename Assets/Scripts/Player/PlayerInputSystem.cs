@@ -110,4 +110,14 @@ public class PlayerInputSystem : MonoBehaviour, PlayerControls.IGameplayActions
             onStrongSkill?.Invoke();
         }
     }
+
+    public void DisableInput()
+    {
+        playerControls.Disable();
+    }
+
+    public void EnableInput()
+    {
+        playerControls.Enable();
+    }
 }

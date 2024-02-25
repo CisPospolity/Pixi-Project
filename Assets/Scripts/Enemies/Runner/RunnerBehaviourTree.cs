@@ -9,12 +9,13 @@ public class RunnerBehaviourTree : BehaviourTree.Tree, ISpeedProvider, ITargetTr
 {
     private RunnerEnemy runnerEnemy;
     private NavMeshAgent agent;
-
+    private Animator animator;
     private Transform activeWaypoint;
     private void Awake()
     {
         runnerEnemy = GetComponent<RunnerEnemy>();
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         SetActiveWaypoint();
     }
     public float GetSpeed()
@@ -30,7 +31,7 @@ public class RunnerBehaviourTree : BehaviourTree.Tree, ISpeedProvider, ITargetTr
     protected override Node SetupTree()
     {
         Node root = new Sequence(new List<Node> {
-                new GoToPositionTask(agent, () => runnerEnemy.GetActiveWaypoint(), GetComponent<Animator>(),  this),
+                new GoToPositionTask(agent, () => runnerEnemy.GetActiveWaypoint(), animator,  this),
                 new Sequence(new List<Node>
                 {
                     new CheckIfTargetInRange(runnerEnemy, this, ()=> runnerEnemy.GetDistanceUntilRun()),

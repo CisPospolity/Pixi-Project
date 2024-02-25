@@ -5,16 +5,18 @@ using BehaviourTree;
 public class CheckIfStunnedSelector : Node
 {
     private EnemyScript enemy;
-    public CheckIfStunnedSelector(EnemyScript enemy)
+    private Animator animator;
+    public CheckIfStunnedSelector(EnemyScript enemy, Animator enemyAnimator)
     {
         this.enemy = enemy;
+        this.animator = enemyAnimator;
     }
 
     public override NodeState Evaluate()
     {
         if(enemy.GetIfImmobilized())
         {
-            enemy.GetComponent<Animator>().SetBool("isWalking", false);
+            animator.SetBool("isWalking", false);
             state = NodeState.FAILURE;
         } else
         {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class RunnerEnemy : EnemyScript
 {
@@ -10,21 +11,46 @@ public class RunnerEnemy : EnemyScript
     private List<Transform> waypoints = new List<Transform>();
     private int waypointIndex = 0;
     private Transform activeWaypoint;
+    private RunnerBehaviourTree aiTree;
 
     private void Start()
     {
+        aiTree = GetComponent<RunnerBehaviourTree>();
         if (waypoints.Count > 0)
         {
             activeWaypoint = waypoints[0];
         }
     }
+    public override void Damage(int damage)
+    {
+        base.Damage(damage);
+        animator.SetTrigger("gotHit");
+    }
+
+    public override void Die()
+    {
+        base.Die();
+        aiTree.enabled = false;
+        animator.SetTrigger("Die");
+        GetComponent<NavMeshAgent>().enabled = false;
+        this.enabled = false;
+        StartCoroutine(DisableRigidbody());
+    }
+
+    IEnumerator DisableRigidbody()
+    {
+        yield return new WaitUntil(() => GetComponent<Rigidbody>().IsSleeping());
+        GetComponent<Rigidbody>().isKinematic = true;
+        GetComponent<Collider>().enabled = false;
+    }
+
 
     public override Transform FindPlayer()
     {
         Collider[] cols = Physics.OverlapSphere(transform.position, distanceUntilRun+5);
         foreach (Collider col in cols)
         {
-            if (col.GetComponent<PlayerScript>())
+            if (col.CompareTag("Player"))
             {
                 return col.transform;
             }
@@ -32,14 +58,14 @@ public class RunnerEnemy : EnemyScript
         return null;
     }
 
-    public ref float GetDistanceUntilRun()
+    public float GetDistanceUntilRun()
     {
-        return ref distanceUntilRun;
+        return distanceUntilRun;
     }
 
-    public ref Transform GetActiveWaypoint()
+    public Transform GetActiveWaypoint()
     {
-        return ref activeWaypoint;
+        return activeWaypoint;
     }
 
     public void CalculateNewWaypoint()

@@ -10,29 +10,31 @@ public class ShroomWarriorBehaviourTree : BehaviourTree.Tree, ITargetTransformPr
     private ShroomWarriorEnemy enemy;
     [SerializeField]
     private Animator animator;
+    private NavMeshAgent agent;
 
     private void Awake()
     {
         enemy = GetComponent<ShroomWarriorEnemy>();
         animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     protected override Node SetupTree()
     {
         Node root = new Sequence(new List<Node> {
-                new CheckIfStunnedSelector(enemy),
+                new CheckIfStunnedSelector(enemy, animator),
                 new Selector(new List<Node> {
                     new Sequence(new List<Node>
                     {
                         new CheckIfTargetInRange(enemy, this, () => enemy.GetMeleeAttackRange()),
-                        new ShroomWarriorAttack(enemy, animator, () => enemy.GetAttackTimer(), () => GetTargetTransform(), GetComponent<NavMeshAgent>())
+                        new ShroomWarriorAttack(enemy, animator, () => enemy.GetAttackTimer(), () => GetTargetTransform(), agent)
                     }),
                     new Selector(new List<Node> {
                         new Sequence(new List<Node> {
                             new CheckIfTargetInRange(enemy, this, () => enemy.GetPlayerFollowRange()),
-                            new FollowPlayerTask(GetComponent<NavMeshAgent>(), animator, this, this)
+                            new FollowPlayerTask(agent, animator, this, this)
                         }),
-                        new StopTask(GetComponent<NavMeshAgent>(), animator)
+                        new StopTask(agent, animator)
                     })
                 })
         });
