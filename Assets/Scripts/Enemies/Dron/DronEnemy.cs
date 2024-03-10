@@ -71,10 +71,27 @@ public class DronEnemy : EnemyScript
     {
         Transform player = FindPlayer();
         var pos = player.transform.position;
-        yield return new WaitForSeconds(laserPrep);
         lineRenderer.enabled = true;
-
+        lineRenderer.widthCurve = new AnimationCurve(new Keyframe(0, 0.2f), new Keyframe(1, 0.2f));
+        float time = 0;
         RaycastHit hit;
+
+        while (time < laserPrep)
+        {
+            if (Physics.Raycast(new Ray(eye.position, pos - transform.position), out hit))
+            {
+                lineRenderer.SetPositions(new Vector3[] { eye.position, hit.point });
+            }
+            else
+            {
+                lineRenderer.SetPositions(new Vector3[] { eye.position, eye.position + (pos - eye.position) * 100f });
+
+            }
+            time += Time.deltaTime;
+            yield return null;
+        }
+        lineRenderer.widthCurve = new AnimationCurve(new Keyframe(0, 1), new Keyframe(1, 1));
+
         if(Physics.Raycast(new Ray(eye.position, pos - transform.position), out hit))
         {
             lineRenderer.SetPositions(new Vector3[] { eye.position, hit.point});

@@ -12,8 +12,8 @@ public class PlayerScript : MonoBehaviour, IDamageable, IHealable
     private int permamentShieldValue = 0;
 
     private List<TemporaryShield> temporaryShields = new List<TemporaryShield>();
-
-    private float invicibilityTime = 0.5f;
+    [SerializeField, Tooltip("Invicibilty time after taking damage")]
+    private float invicibilityTime = 1.5f;
     private float damageTimer = 0.5f;
 
     public delegate void HealthUIDelegate(int maxHealth, int health, int shield);
