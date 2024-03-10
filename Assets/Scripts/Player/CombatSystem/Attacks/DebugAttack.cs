@@ -14,6 +14,6 @@ public class DebugAttack : Attack
 
     public override void UseAttack(BoxCollider hitbox = null)
     {
-        throw new System.NotImplementedException();
+        
     }
 }

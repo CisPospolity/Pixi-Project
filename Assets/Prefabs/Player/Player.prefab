@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: -4282723905223143211}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -291,8 +291,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f13886835bca896459d8e61b140788ec, type: 2}
   - {fileID: 11400000, guid: 564fa1c54f7e05a48984c2afdd4ee01d, type: 2}
   availableCombos: []
-  lightAttack1Collider: {fileID: 0}
-  lightAttack2Collider: {fileID: 0}
+  colliderList: []
 --- !u!114 &2683579490543728521
 MonoBehaviour:
   m_ObjectHideFlags: 0
