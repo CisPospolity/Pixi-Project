@@ -15,7 +15,7 @@ public class DronEnemy : EnemyScript
     [SerializeField]
     private float explosionRange = 10f;
     [SerializeField]
-    private int laserDamage;
+    private int laserDamage = 1;
     private LineRenderer lineRenderer;
     [SerializeField]
     private Transform eye;
@@ -80,7 +80,7 @@ public class DronEnemy : EnemyScript
             lineRenderer.SetPositions(new Vector3[] { eye.position, hit.point});
             if(hit.transform == player)
             {
-                player.GetComponent<PlayerScript>().ApplyDamage(laserDamage);
+                player.GetComponent<PlayerScript>().Damage(laserDamage);
             }
         } else
         {

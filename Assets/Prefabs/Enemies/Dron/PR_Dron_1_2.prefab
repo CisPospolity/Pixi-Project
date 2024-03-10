@@ -142,7 +142,7 @@ MonoBehaviour:
   distanceToAttack: 10
   attackTime: 1
   explosionRange: 3
-  laserDamage: 0
+  laserDamage: 1
   eye: {fileID: 5952919690394554413}
 --- !u!114 &1385662303928655943
 MonoBehaviour:

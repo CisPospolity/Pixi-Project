@@ -64,10 +64,10 @@ public class ShroomWarriorEnemy : EnemyScript
 
     public void Attack()
     {
-        Collider[] cols = Physics.OverlapBox(attackHurtBox.center, attackHurtBox.size / 2);
+        Collider[] cols = Physics.OverlapBox(this.transform.position + attackHurtBox.center, attackHurtBox.size / 2);
         foreach(Collider col in cols)
         {
-            col.GetComponent<PlayerScript>()?.ApplyDamage(1);
+            col.GetComponent<PlayerScript>()?.Damage(1);
         }
     }
 
