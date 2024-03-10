@@ -4415,7 +4415,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196579691}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.43039253, y: 0.000000047136872, z: -0.000000022475536, w: 0.90264183}
+  m_LocalRotation: {x: 0.4303925, y: -0.0000000071359465, z: 0.000000003402523, w: 0.90264183}
   m_LocalPosition: {x: 131.83, y: 27.68, z: 100.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -40045,7 +40045,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768951096}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.43039253, y: 0.000000047136872, z: -0.000000022475536, w: 0.90264183}
+  m_LocalRotation: {x: 0.4303925, y: -0.0000000071359465, z: 0.000000003402523, w: 0.90264183}
   m_LocalPosition: {x: 131.83, y: 27.68, z: 100.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -49202,7 +49202,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6558095408433892358, guid: f04d98f6fc0260f4e9aaac45295006a9,
         type: 3}
-      insertIndex: 11
+      insertIndex: 12
       addedObject: {fileID: 1496635380}
     - targetCorrespondingSourceObject: {fileID: 6558095408433892358, guid: f04d98f6fc0260f4e9aaac45295006a9,
         type: 3}

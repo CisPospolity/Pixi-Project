@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1586408993229627493}
+  - component: {fileID: 4496710013361294488}
   - component: {fileID: 761518586010226913}
   - component: {fileID: 771800973965693543}
   - component: {fileID: 810154992973651570}
@@ -44,6 +45,29 @@ Transform:
   - {fileID: 8240223719680527787}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &4496710013361294488
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6558095408433892358}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.75
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!143 &761518586010226913
 CharacterController:
   m_ObjectHideFlags: 0
@@ -103,7 +127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   maxHealth: 5
-  permamentShieldValue: 0
 --- !u!114 &6648323938783339296
 MonoBehaviour:
   m_ObjectHideFlags: 0

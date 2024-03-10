@@ -13,7 +13,6 @@ public class PlayerScript : MonoBehaviour, IDamageable, IHealable
 
     private List<TemporaryShield> temporaryShields = new List<TemporaryShield>();
 
-    private int damageTaken;
     private float invicibilityTime = 0.5f;
     private float damageTimer = 0.5f;
 
@@ -29,7 +28,7 @@ public class PlayerScript : MonoBehaviour, IDamageable, IHealable
     {
         if (damageTimer <= invicibilityTime) return;
         damageTimer = 0;
-        ApplyDamage(damageTaken);
+        ApplyDamage(damage);
     }
     public void ApplyDamage(int damage)
     {
