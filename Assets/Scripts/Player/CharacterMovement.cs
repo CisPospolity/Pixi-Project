@@ -122,13 +122,12 @@ public class CharacterMovement : MonoBehaviour
         } else
         {
             Ray ray = Camera.main.ScreenPointToRay(rotation);
-            Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+            Plane groundPlane = new Plane(Vector3.up, transform.position);
             float rayDistance;
             if(groundPlane.Raycast(ray, out rayDistance))
             {
                 Vector3 point = ray.GetPoint(rayDistance);
-                point.y = transform.position.y;
-                transform.LookAt(point);
+                transform.LookAt(new Vector3(point.x, transform.position.y, point.z));
             }
         }
     }
