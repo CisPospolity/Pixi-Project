@@ -67,10 +67,10 @@ public class CharacterMovement : MonoBehaviour
         return speedModifierManager;
     }
 
-    private void OnGUI()
+    /*private void OnGUI()
     {
         GUI.Label(new Rect(10, 10, 300, 20), "Actual Speed: " + ActualSpeed);
-    }
+    }*/
 
     private void Awake()
     {
@@ -198,5 +198,12 @@ public class CharacterMovement : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawLine(transform.position, transform.position + Vector3.down * groundCheckLength);
+    }
+
+    private void OnDestroy()
+    {
+        playerInputSystem.onMovement -= MovementHandler;
+        playerInputSystem.onJump -= Jump;
+        playerInputSystem.onLookRotation -= RotationHandler;
     }
 }

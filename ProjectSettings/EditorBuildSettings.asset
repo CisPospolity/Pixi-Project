@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/LVL_CAVE.unity
+    guid: e643f98a70735804fad99ef6ed357188
+  - enabled: 1
+    path: Assets/Scenes/LVL_BOSS.unity
+    guid: ef86626a14975e344b64f5d598ff0fc5
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: d1965066a2807cb49b5b56a3e2b1af62,
       type: 2}
