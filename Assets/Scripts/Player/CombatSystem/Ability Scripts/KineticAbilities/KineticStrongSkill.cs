@@ -27,8 +27,8 @@ public class KineticStrongSkill : StrongSkill
     }
     public override void Execute()
     {
-        GetComponent<Animator>().SetTrigger("KineticStrong");
         if (Time.time < nextAbilityTime) return;
+        GetComponent<Animator>().SetTrigger("KineticStrong");
         nextAbilityTime = Time.time + abilityCooldown;
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, abilityRadius);

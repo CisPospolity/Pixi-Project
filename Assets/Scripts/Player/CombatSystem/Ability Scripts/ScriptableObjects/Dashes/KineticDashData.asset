@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2575492f84d958249880996b5cbcc939, type: 3}
   m_Name: KineticDashData
   m_EditorClassIdentifier: 
+  abiltyIcon: {fileID: 21300000, guid: c0331bfa523726b498c786185b12b991, type: 3}
   dashDistance: 5
   dashCooldown: 1
   dashSpeed: 20

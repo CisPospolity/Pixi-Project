@@ -12,7 +12,7 @@ public class MagneticQuickSkill : QuickSkill
     [SerializeField]
     private int projectileDamage = 2;
     [SerializeField]
-    private Vector3 offsetFromPlayer = new Vector3(0,3.5f,2f);
+    private Vector3 offsetFromPlayer = new Vector3(0,1.5f,1f);
     [SerializeField]
     private float projectileSpeed = 5f;
     [SerializeField]
@@ -39,7 +39,7 @@ public class MagneticQuickSkill : QuickSkill
         {
             GameObject proj = Instantiate(magneticProjectile, transform.position + offsetFromPlayer, transform.rotation);
             Rigidbody rb = proj.GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 10, ForceMode.VelocityChange);
+            rb.AddForce(transform.forward * projectileSpeed, ForceMode.VelocityChange);
 
             proj.GetComponent<MagneticQuickSkillProjectile>().Setup(projectileDamage, pullRadius);
 

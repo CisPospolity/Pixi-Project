@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef75108337d20944bb8e5ea412dc34d, type: 3}
   m_Name: ElectricDashData
   m_EditorClassIdentifier: 
+  abiltyIcon: {fileID: 21300000, guid: 164f5238d2c38464d962a29a1cafcd28, type: 3}
   dashDistance: 5
   dashCooldown: 1
   dashSpeed: 20

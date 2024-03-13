@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e700ce097edb041498c405cf91e131cc, type: 3}
   m_Name: GravityQuickSkillData
   m_EditorClassIdentifier: 
+  abiltyIcon: {fileID: 21300000, guid: 151fe6c328d04ba40b280b56a66aba94, type: 3}
   abilityCooldown: 5
   grenadePrefab: {fileID: 1500044001507743858, guid: 82ae8e29762ba8a46b713bc2c3ed49fd,
     type: 3}

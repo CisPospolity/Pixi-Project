@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b291394eb4ffc0a4e87f2d1c4d6a724b, type: 3}
   m_Name: KineticQuickSkillData
   m_EditorClassIdentifier: 
+  abiltyIcon: {fileID: 21300000, guid: fe1607681ea10e947a353ee0a9c444c6, type: 3}
   abilityCooldown: 5
   range: 5
   coneAngle: 45

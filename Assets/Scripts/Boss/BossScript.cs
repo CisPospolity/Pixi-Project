@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System.Runtime.CompilerServices;
+using System.Diagnostics;
+
 [RequireComponent(typeof(LineRenderer))]
 public class BossScript : EnemyScript
 {
@@ -9,7 +12,8 @@ public class BossScript : EnemyScript
     {
         IDLE,
         FOLLOW,
-        ATTACKING
+        ATTACKING,
+        DEAD
     }
 
     private BossState state = BossState.IDLE;
@@ -58,6 +62,22 @@ public class BossScript : EnemyScript
     private float legCooldown;
     private float legTimer;
 
+    [Header("MasiveLegAttack")]
+    [SerializeField]
+    private float massiveLegMinCooldown = 20f;
+    [SerializeField]
+    private float massiveLegMaxCooldown = 35f;
+    private float massiveLegCooldown;
+    private float massiveLegTimer;
+
+    [Header("Front Shot")]
+    [SerializeField]
+    private float frontShotMinCooldown = 5f;
+    [SerializeField]
+    private float frontShotMaxCooldown = 15f;
+    private float frontShotCooldown;
+    private float frontShotTimer;
+
     public override Transform FindPlayer()
     {
         Collider[] cols = Physics.OverlapSphere(transform.position, playerFindingRange);
@@ -82,6 +102,8 @@ public class BossScript : EnemyScript
         centerLaserCooldown = Random.Range(centerLaserMinCooldown, centerLaserMaxCooldown);
         sideLaserCooldown = Random.Range(sideLaserMinCooldown, sideLaserMaxCooldown);
         legCooldown = Random.Range(legMinCooldown, legMaxCooldown);
+        massiveLegCooldown = Random.Range(massiveLegMinCooldown, massiveLegMaxCooldown);
+        frontShotCooldown = Random.Range(frontShotMinCooldown, frontShotMaxCooldown);
     }
 
     private void Update()
@@ -92,12 +114,14 @@ public class BossScript : EnemyScript
     public override void Die()
     {
         base.Die();
+        state = BossState.DEAD;
         animator.SetTrigger("Die");
         this.enabled = false;
     }
 
     public override void Damage(int damage, GameObject damageSource, bool selfDamage=false)
     {
+        if (state == BossState.DEAD) return;
         if (!selfDamage && damageSource == this.gameObject) return;
 
         base.Damage(damage, damageSource, selfDamage);
@@ -153,6 +177,16 @@ public class BossScript : EnemyScript
         centerLaserTimer += Time.deltaTime;
         sideLaserTimer += Time.deltaTime;
         legTimer += Time.deltaTime;
+        massiveLegTimer += Time.deltaTime;
+        frontShotTimer += Time.deltaTime;
+
+        if(massiveLegTimer >= massiveLegCooldown)
+        {
+            StartCoroutine(MassiveLegAttack());
+            legTimer = 0;
+            legCooldown = Random.Range(massiveLegMinCooldown, massiveLegMaxCooldown);
+            return;
+        }
 
         if(legTimer >= legCooldown)
         {
@@ -177,6 +211,44 @@ public class BossScript : EnemyScript
             sideLaserCooldown = Random.Range(sideLaserMinCooldown, sideLaserMaxCooldown);
             return;
         }
+
+
+
+        if (frontShotTimer >= frontShotCooldown)
+        {
+            StartCoroutine(FrontShotAttack());
+            frontShotTimer = 0;
+            frontShotCooldown = Random.Range(frontShotMinCooldown, frontShotMaxCooldown);
+            return;
+        }
+    }
+
+    private IEnumerator FrontShotAttack()
+    {
+        state = BossState.ATTACKING;
+        animator.SetTrigger("FrontShot");
+        yield return new WaitForSeconds(0.35f);
+        Collider[] hitEnemies = Physics.OverlapSphere(transform.position, 100);
+
+        foreach (var hitCollider in hitEnemies)
+        {
+            if (hitCollider.gameObject == this.gameObject) continue;
+            if (hitCollider.GetComponent<PlayerScript>() != null)
+            {
+                Vector3 directionToEnemy = (hitCollider.transform.position - transform.position).normalized;
+                if (Vector3.Angle(transform.forward, directionToEnemy) < 45 / 2)
+                {
+
+                    if (hitCollider.GetComponent<IDamageable>() != null)
+                    {
+                        hitCollider.GetComponent<IDamageable>().Damage(1, this.gameObject);
+                    }
+                }
+            }
+        }
+        state = BossState.FOLLOW;
+
+        yield return null;
     }
 
     private IEnumerator LegAttack()
@@ -187,6 +259,28 @@ public class BossScript : EnemyScript
         leg.transform.DOMoveY(5, 1f);
         yield return new WaitForSeconds(1.5f);
         leg.SetActive(false);
+        state = BossState.FOLLOW;
+
+    }
+
+    private IEnumerator MassiveLegAttack()
+    {
+        state = BossState.ATTACKING;
+        animator.SetBool("MassiveLegAttack", true);
+        leg.SetActive(true);
+        leg.transform.position = new Vector3(player.position.x, 70f, player.position.z);
+        int legAttacks = Random.Range(5, 8);
+        for (int i = 0; i < legAttacks; i++)
+        {
+            leg.transform.DOMoveY(5, 1f);
+            yield return new WaitForSeconds(1f);
+            leg.transform.DOMoveY(70, 1.5f);
+            yield return new WaitForSeconds(1.5f);
+            leg.transform.position = new Vector3(player.position.x, 70f, player.position.z);
+        }
+        leg.SetActive(false);
+        animator.SetBool("MassiveLegAttack", false);
+
         state = BossState.FOLLOW;
 
     }

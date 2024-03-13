@@ -15,7 +15,7 @@ public class ElectricDash : DashAbility
     private bool canSecondDash = false;
     private Image cooldownImage;
 
-    private Coroutine cooldownShow;
+    bool showCooldown = true;
 
     public override void Initialize(DashSO so)
     {
@@ -46,7 +46,7 @@ public class ElectricDash : DashAbility
         ApplySpeedBuff();
         yield return new WaitForSeconds(secondDashWindow);
         canSecondDash = false;
-        if (cooldownShow == null)
+        if (showCooldown)
         {
             yield return base.UpdateCooldown(cooldownImage);
         }
@@ -56,7 +56,9 @@ public class ElectricDash : DashAbility
     {
         yield return StartCoroutine(base.PerformDash());
         ApplySpeedBuff();
-        cooldownShow = StartCoroutine(base.UpdateCooldown(cooldownImage));
+        showCooldown = false;
+        yield return StartCoroutine(base.UpdateCooldown(cooldownImage));
+        showCooldown = true;
 
     }
 

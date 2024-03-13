@@ -157,6 +157,8 @@ public class PlayerCombatSystem : MonoBehaviour
 
         dashAbility = gameObject.AddComponent<T>();
         dashAbility.Initialize(data);
+        uIManager.dashIconCooldown.fillAmount = 0;
+
     }
 
     public void ChangeQuickSkill<T>(QuickSkillSO data) where T : QuickSkill
@@ -169,6 +171,9 @@ public class PlayerCombatSystem : MonoBehaviour
 
         quickSkill = gameObject.AddComponent<T>();
         quickSkill.Initialize(data);
+        uIManager.quickSkillIconCooldown.fillAmount = 0;
+
+
     }
 
     public void ChangeStrongSkill<T>(StrongSkillSO data) where T : StrongSkill
@@ -181,6 +186,9 @@ public class PlayerCombatSystem : MonoBehaviour
 
         strongSkill = gameObject.AddComponent<T>();
         strongSkill.Initialize(data);
+        uIManager.strongSkillIconCooldown.fillAmount = 0;
+
+
     }
 
     private void LockOut(float lockOutTime)

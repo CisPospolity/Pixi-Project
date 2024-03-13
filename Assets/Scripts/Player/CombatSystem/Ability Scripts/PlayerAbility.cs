@@ -127,7 +127,7 @@ namespace PlayerAbilities
             while(cooldownTimer < dashCooldown)
             {
                 cooldownTimer += Time.deltaTime;
-                image.fillAmount = (1-cooldownTimer)/dashCooldown;
+                image.fillAmount = 1 - cooldownTimer / dashCooldown;
                 yield return null;
             }
         }
@@ -149,8 +149,8 @@ namespace PlayerAbilities
             float cooldownTimer = 0;
             while (cooldownTimer < abilityCooldown)
             {
+                image.fillAmount = 1 - cooldownTimer / abilityCooldown;
                 cooldownTimer += Time.deltaTime;
-                image.fillAmount = (1 - cooldownTimer) / abilityCooldown;
                 yield return null;
             }
         }
@@ -173,7 +173,7 @@ namespace PlayerAbilities
             while (cooldownTimer < abilityCooldown)
             {
                 cooldownTimer += Time.deltaTime;
-                image.fillAmount = (1 - cooldownTimer) / abilityCooldown;
+                image.fillAmount = 1 - cooldownTimer / abilityCooldown;
                 yield return null;
             }
         }

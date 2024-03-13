@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 230bc8980760b8d499f7a4e8e31fb588, type: 3}
   m_Name: MagneticQuickSkillData
   m_EditorClassIdentifier: 
+  abiltyIcon: {fileID: 21300000, guid: 62ab4996258b0ee42908ffc0afb8fd9a, type: 3}
   abilityCooldown: 5
   magneticProjectile: {fileID: 7101820627987436770, guid: da8e913835c5c7843ac57f1e0746000b,
     type: 3}
   projectileDamage: 2
-  offsetFromPlayer: {x: 0, y: 3.5, z: 2}
+  offsetFromPlayer: {x: 0, y: 1.5, z: 1}
   projectileSpeed: 5
   pullRadius: 5

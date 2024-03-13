@@ -332,9 +332,7 @@ GameObject:
   - component: {fileID: 1788390360575109480}
   - component: {fileID: 105753824956085414}
   - component: {fileID: 3998473810948347281}
-  - component: {fileID: 3870977866534599561}
   - component: {fileID: 6945995548297861222}
-  - component: {fileID: 6727413785916198612}
   - component: {fileID: -4282723905223143211}
   - component: {fileID: 4472779941669210800}
   - component: {fileID: 3195832568927958019}
@@ -573,28 +571,8 @@ MonoBehaviour:
   passiveAbility: {fileID: 0}
   attackPassiveAbility: {fileID: 0}
   dashAbility: {fileID: 0}
-  quickSkill: {fileID: 3870977866534599561}
-  strongSkill: {fileID: 6727413785916198612}
---- !u!114 &3870977866534599561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6558095408433892358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b704e151d4a44e4fb09f98a92d021ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilityCooldown: 5
-  range: 5
-  coneAngle: 45
-  damage: 2
-  debuff:
-    type: 1
-    Duration: 2
-  knockbackStrength: 10
+  quickSkill: {fileID: 0}
+  strongSkill: {fileID: 0}
 --- !u!114 &6945995548297861222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,23 +593,6 @@ MonoBehaviour:
   - {fileID: 2718835187021513646}
   - {fileID: 5261488578582298237}
   - {fileID: 4781317223993359933}
---- !u!114 &6727413785916198612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6558095408433892358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06163e3f0dfb6564e9de458310f85e1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilityCooldown: 5
-  abilityRadius: 7
-  onCastDamage: 2
-  knockbackStrength: 10
-  onWallHitDamage: 5
 --- !u!95 &-4282723905223143211
 Animator:
   serializedVersion: 5
@@ -717,6 +678,12 @@ MonoBehaviour:
   healthFull: {fileID: 21300000, guid: 7073bb1e5bd676844a6a4ef706bcec6d, type: 3}
   shieldHealth: {fileID: 21300000, guid: 825ad5bf4f4a438488039b62623149d6, type: 3}
   abilitySelectTransform: {fileID: 0}
+  dashIcon: {fileID: 0}
+  quickSkillIcon: {fileID: 0}
+  strongSkillIcon: {fileID: 0}
+  dashIconCooldown: {fileID: 0}
+  quickSkillIconCooldown: {fileID: 0}
+  strongSkillIconCooldown: {fileID: 0}
   pauseMenuTransform: {fileID: 0}
   deathScreenTransform: {fileID: 0}
 --- !u!1001 &8489741242730752576

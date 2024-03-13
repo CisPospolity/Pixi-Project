@@ -163,15 +163,15 @@ ModelImporter:
       takeName: Boss_Arm|Boss_Shot
       internalID: -6618099690692302844
       firstFrame: 0
-      lastFrame: 39
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
-      cycleOffset: 0
+      cycleOffset: 8
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
