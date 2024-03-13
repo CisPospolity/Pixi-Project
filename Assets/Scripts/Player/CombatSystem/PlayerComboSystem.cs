@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public enum AttackType
 {
@@ -23,6 +22,8 @@ public class PlayerComboSystem : MonoBehaviour
     [SerializeField]
     private List<BoxCollider> colliderList;
     #endregion
+
+    public event Action<float> onAttackUse;
 
     private void Start()
     {
@@ -90,6 +91,7 @@ public class PlayerComboSystem : MonoBehaviour
         GetComponent<Animator>().SetTrigger(availableCombos[0].comboAttacks[comboCounter].triggerName);
         comboTimer = availableCombos[0].comboAttacks[comboCounter].maxNextComboTime;
         comboLockTimer = availableCombos[0].comboAttacks[comboCounter].lockOutTime;
+        onAttackUse?.Invoke(availableCombos[0].comboAttacks[comboCounter].lockOutTime);
         comboCounter++;
     }
 
@@ -120,6 +122,7 @@ public class PlayerComboSystem : MonoBehaviour
 
     public void ResetCombo()
     {
+        GetComponent<Animator>().SetTrigger("ResetAA");
         comboCounter = 0;
         availableCombos = new List<Combo>(combos);
     }

@@ -23,7 +23,7 @@ public class KnockbackDebuff : ImmobilizingDebuff
         {
             if(col.point.y > enemyRigidbody.transform.position.y)
             {
-                enemyRigidbody.GetComponent<EnemyScript>().Damage((int)WallCollisionDamage);
+                enemyRigidbody.GetComponent<EnemyScript>().Damage((int)WallCollisionDamage, null);
                 enemyRigidbody.GetComponent<EnemyScript>().AddBuffOrDebuff(new ImmobilizingDebuff(5f), "KineticStrongSkillWallHit");
                 enemyRigidbody.velocity = Vector3.zero;
                 enemyRigidbody.AddForce(Vector3.up * 5, ForceMode.VelocityChange);

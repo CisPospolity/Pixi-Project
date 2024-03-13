@@ -15,6 +15,19 @@ public class KineticQuickSkill : QuickSkill
     [SerializeField]
     protected float knockbackStrength = 10f;
 
+    public override void Initialize(QuickSkillSO so)
+    {
+        base.Initialize(so);
+
+        KineticQuickSkillData data = so as KineticQuickSkillData;
+
+        range = data.range;
+        coneAngle = data.coneAngle;
+        damage = data.damage;
+        debuff = data.debuff;
+        knockbackStrength = data.knockbackStrength;
+    }
+
     protected override void Awake()
     {
         base.Awake();
@@ -54,7 +67,7 @@ public class KineticQuickSkill : QuickSkill
 
                     if (hitCollider.GetComponent<IDamageable>() != null)
                     {
-                        hitCollider.GetComponent<IDamageable>().Damage(damage);
+                        hitCollider.GetComponent<IDamageable>().Damage(damage, this.gameObject);
                     }
                     
 

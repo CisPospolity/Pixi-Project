@@ -17,15 +17,17 @@ public class PlayerScript : MonoBehaviour, IDamageable, IHealable
     private float damageTimer = 0.5f;
 
     public delegate void HealthUIDelegate(int maxHealth, int health, int shield);
-    public event HealthUIDelegate OnHealthChange;
+    public event HealthUIDelegate onHealthChange;
 
     void Start()
     {
-        OnHealthChange?.Invoke(maxHealth, health, CalcuateShields());
+        onHealthChange?.Invoke(maxHealth, health, CalcuateShields());
     }
 
-    public void Damage(int damage)
+    public void Damage(int damage, GameObject damageSource, bool selfDamage = false)
     {
+        if (!selfDamage && damageSource == this.gameObject) return;
+
         if (damageTimer <= invicibilityTime) return;
         damageTimer = 0;
         ApplyDamage(damage);
@@ -52,7 +54,7 @@ public class PlayerScript : MonoBehaviour, IDamageable, IHealable
         }
         //Trigger OnHit Event
         health -= effectiveDamage;
-        OnHealthChange(maxHealth, health, CalcuateShields());
+        onHealthChange(maxHealth, health, CalcuateShields());
 
     }
 
@@ -61,21 +63,21 @@ public class PlayerScript : MonoBehaviour, IDamageable, IHealable
     {
         health += (int)healAmount;
         if (health > maxHealth) health = maxHealth;
-        OnHealthChange(maxHealth, health, CalcuateShields());
+        onHealthChange(maxHealth, health, CalcuateShields());
 
     }
 
     public void AddTemporaryShield(TemporaryShield shield)
     {
         temporaryShields.Add(shield);
-        OnHealthChange?.Invoke(maxHealth, health, CalcuateShields());
+        onHealthChange?.Invoke(maxHealth, health, CalcuateShields());
 
     }
 
     public void AddPermamentShield(int value)
     {
         permamentShieldValue += value;
-        OnHealthChange?.Invoke(maxHealth, health, CalcuateShields());
+        onHealthChange?.Invoke(maxHealth, health, CalcuateShields());
 
     }
 
@@ -95,7 +97,7 @@ public class PlayerScript : MonoBehaviour, IDamageable, IHealable
             if (shield.shieldDuration <= 0 || shield.shieldAmount <= 0)
             {
                 temporaryShields.RemoveAt(i);
-                OnHealthChange(maxHealth, health, CalcuateShields());
+                onHealthChange(maxHealth, health, CalcuateShields());
             }
         }
     }

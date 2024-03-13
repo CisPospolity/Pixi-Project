@@ -15,11 +15,11 @@ public class BasicAttack : Attack
     public override void UseAttack(BoxCollider hitbox = null)
     {
         if (hitbox == null) return;
-        Collider[] cols = Physics.OverlapBox(hitbox.transform.position, hitbox.size/2, hitbox.transform.rotation, mask, QueryTriggerInteraction.Collide);
+        Collider[] cols = Physics.OverlapBox(hitbox.transform.position, hitbox.size/2, hitbox.transform.rotation, mask);
         foreach(Collider col in cols)
         {
             if (col.GetComponent<PlayerScript>() != null) return;
-            col.GetComponent<IDamageable>().Damage(attackDamage);
+            col.GetComponent<IDamageable>()?.Damage(attackDamage, null) ;
         }
     }
 }

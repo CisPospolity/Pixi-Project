@@ -42,6 +42,12 @@ namespace PlayerAbilities
 
         protected bool isDashing = false;
 
+        public virtual void Initialize(DashSO so)
+        {
+            dashDistance = so.dashDistance;
+            dashCooldown = so.dashCooldown;
+            dashSpeed = so.dashSpeed;
+        }
         protected override void Awake()
         {
             base.Awake();
@@ -114,6 +120,11 @@ namespace PlayerAbilities
         protected float abilityCooldown = 5f;
         protected float nextAbilityTime = 0f;
 
+        public virtual void Initialize(QuickSkillSO data)
+        {
+            abilityCooldown = data.abilityCooldown;
+        }
+
     }
 
     public abstract class StrongSkill : PlayerAbility
@@ -121,5 +132,10 @@ namespace PlayerAbilities
         [SerializeField]
         protected float abilityCooldown = 5f;
         protected float nextAbilityTime = 0f;
+
+        public virtual void Initialize(StrongSkillSO data)
+        {
+            abilityCooldown = data.abilityCooldown;
+        }
     }
 }

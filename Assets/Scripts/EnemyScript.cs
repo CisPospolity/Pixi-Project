@@ -164,8 +164,9 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
         return Physics.Raycast(transform.position, Vector3.down, groundCheckDistance);
     }
 
-    public virtual void Damage(int damage)
+    public virtual void Damage(int damage, GameObject damageSource, bool selfDamage = false)
     {
+        if (!selfDamage && damageSource == this.gameObject) return;
         health -= damage;
         if(health < 0)
         {

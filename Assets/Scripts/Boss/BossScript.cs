@@ -96,17 +96,19 @@ public class BossScript : EnemyScript
         this.enabled = false;
     }
 
-    public override void Damage(int damage)
+    public override void Damage(int damage, GameObject damageSource, bool selfDamage=false)
     {
-        base.Damage(damage);
+        if (!selfDamage && damageSource == this.gameObject) return;
 
-        if(health <= maxHealth * (2/3) && !firstPlatformThreshold)
+        base.Damage(damage, damageSource, selfDamage);
+
+        if(health <= (maxHealth * (2/3)) && !firstPlatformThreshold)
         {
             StartCoroutine(DestroyPlatforms());
             firstPlatformThreshold = true;
         }
 
-        if (health <= maxHealth * (1/3) && !secondPlatformThreshold)
+        if (health <= (maxHealth * (1/3)) && !secondPlatformThreshold)
         {
             StartCoroutine(DestroyPlatforms());
             secondPlatformThreshold = true;
@@ -288,7 +290,7 @@ public class BossScript : EnemyScript
                 if (hit.point != null)
                 {
                     hitPos = hit.point;
-                    hit.transform.GetComponent<IDamageable>()?.Damage(1);
+                    hit.transform.GetComponent<IDamageable>()?.Damage(1, this.gameObject);
                 }
                 else
                 {
@@ -361,7 +363,7 @@ public class BossScript : EnemyScript
                 if (hit.point != null)
                 {
                     hitPos = hit.point;
-                    hit.transform.GetComponent<IDamageable>()?.Damage(1);
+                    hit.transform.GetComponent<IDamageable>()?.Damage(1, this.gameObject);
                 }
                 else
                 {

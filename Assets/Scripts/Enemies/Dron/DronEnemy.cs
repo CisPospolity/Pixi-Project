@@ -41,9 +41,12 @@ public class DronEnemy : EnemyScript
         return null;
     }
 
-    public override void Damage(int damage)
+    public override void Damage(int damage, GameObject damageSource, bool selfDamage = false)
     {
-        base.Damage(damage);
+        if (!selfDamage && damageSource == this.gameObject) return;
+
+        base.Damage(damage, damageSource, selfDamage);
+
         animator.SetTrigger("gotHit");
     }
 
@@ -97,7 +100,7 @@ public class DronEnemy : EnemyScript
             lineRenderer.SetPositions(new Vector3[] { eye.position, hit.point});
             if(hit.transform == player)
             {
-                player.GetComponent<PlayerScript>().Damage(laserDamage);
+                player.GetComponent<PlayerScript>().Damage(laserDamage, this.gameObject);
             }
         } else
         {

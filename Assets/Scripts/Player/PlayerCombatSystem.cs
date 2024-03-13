@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PlayerAbilities;
+using UnityEditor.Playables;
 
 [RequireComponent(typeof(PlayerInputSystem))]
 public class PlayerCombatSystem : MonoBehaviour
@@ -35,21 +36,45 @@ public class PlayerCombatSystem : MonoBehaviour
         playerInputSystem.onDash += DashSkill;
         playerInputSystem.onQuickSkill += QuickSkill;
         playerInputSystem.onStrongSkill += StrongSkill;
+
+        GetComponent<PlayerComboSystem>().onAttackUse += LockOut;
     }
 
     public void LightAttack()
     {
-        playerComboSystem.LightAttack();
+        if (PlayerUIManager.isGamePaused) return;
+
+        if (!isDuringAttack)
+        {
+            playerComboSystem.LightAttack();
+
+        }
+        else if (isDuringAttack && queueAttack == null)
+        {
+            queueAttack = StartCoroutine(QueueAttack(LightAttack));
+        }
     }
 
     public void HeavyAttack()
     {
-        playerComboSystem.HeavyAttack();
+        if (PlayerUIManager.isGamePaused) return;
+
+        if (!isDuringAttack)
+        {
+            playerComboSystem.HeavyAttack();
+
+        }
+        else if (isDuringAttack && queueAttack == null)
+        {
+            queueAttack = StartCoroutine(QueueAttack(HeavyAttack));
+        }
     }
 
     public void DashSkill()
     {
-        if(dashAbility != null && !isDuringAttack)
+        if (PlayerUIManager.isGamePaused) return;
+
+        if (dashAbility != null && !isDuringAttack)
         {
             StartCoroutine(ChangeIfAttacking());
             dashAbility.Execute();
@@ -71,6 +96,8 @@ public class PlayerCombatSystem : MonoBehaviour
 
     public void QuickSkill()
     {
+        if (PlayerUIManager.isGamePaused) return;
+
         if (quickSkill != null && !isDuringAttack)
         {
             StartCoroutine(ChangeIfAttacking());
@@ -90,6 +117,8 @@ public class PlayerCombatSystem : MonoBehaviour
 
     public void StrongSkill()
     {
+        if (PlayerUIManager.isGamePaused) return;
+
         if (strongSkill != null && !isDuringAttack)
         {
             StartCoroutine(ChangeIfAttacking());
@@ -111,10 +140,51 @@ public class PlayerCombatSystem : MonoBehaviour
         quickSkill = qs;
     }
 
-    private IEnumerator ChangeIfAttacking()
+    public void ChangeDash<T>(DashSO data) where T : DashAbility
+    {
+        if (dashAbility != null)
+        {
+            Destroy(dashAbility);
+            dashAbility = null;
+        }
+
+        dashAbility = gameObject.AddComponent<T>();
+        dashAbility.Initialize(data);
+    }
+
+    public void ChangeQuickSkill<T>(QuickSkillSO data) where T : QuickSkill
+    {
+        if (quickSkill != null)
+        {
+            Destroy(quickSkill);
+            quickSkill = null;
+        }
+
+        quickSkill = gameObject.AddComponent<T>();
+        quickSkill.Initialize(data);
+    }
+
+    public void ChangeStrongSkill<T>(StrongSkillSO data) where T : StrongSkill
+    {
+        if (strongSkill != null)
+        {
+            Destroy(strongSkill);
+            strongSkill = null;
+        }
+
+        strongSkill = gameObject.AddComponent<T>();
+        strongSkill.Initialize(data);
+    }
+
+    private void LockOut(float lockOutTime)
+    {
+        StartCoroutine(ChangeIfAttacking(lockOutTime));
+    }
+
+    private IEnumerator ChangeIfAttacking(float lockOutTime = 0.5f)
     {
         isDuringAttack = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(lockOutTime);
         isDuringAttack = false;
     }
 

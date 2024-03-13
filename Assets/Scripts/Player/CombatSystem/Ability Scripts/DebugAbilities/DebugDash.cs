@@ -4,5 +4,8 @@ using UnityEngine;
 using PlayerAbilities;
 public class DebugDash : DashAbility
 {
-    
+    public override void Initialize(DashSO so)
+    {
+        base.Initialize(so);
+    }
 }

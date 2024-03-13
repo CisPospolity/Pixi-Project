@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using PlayerAbilities;
 using UnityEditor;
+using System.Diagnostics;
 
 public class MagneticQuickSkill : QuickSkill
 {
@@ -19,6 +20,19 @@ public class MagneticQuickSkill : QuickSkill
 
     [SerializeField]
     private bool debug_offsetGizmo = false;
+
+    public override void Initialize(QuickSkillSO so)
+    {
+        base.Initialize(so);
+
+        MagneticQuickSkillData data = so as MagneticQuickSkillData;
+
+        magneticProjectile = data.magneticProjectile;
+        projectileDamage = data.projectileDamage;
+        offsetFromPlayer = data.offsetFromPlayer;
+        projectileSpeed = data.projectileSpeed;
+        pullRadius = data.pullRadius;
+    }
     public override void Execute()
     {
         if(Time.time > nextAbilityTime)

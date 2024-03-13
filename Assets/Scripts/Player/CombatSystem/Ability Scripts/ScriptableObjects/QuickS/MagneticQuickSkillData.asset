@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230bc8980760b8d499f7a4e8e31fb588, type: 3}
+  m_Name: MagneticQuickSkillData
+  m_EditorClassIdentifier: 
+  abilityCooldown: 5
+  magneticProjectile: {fileID: 7101820627987436770, guid: da8e913835c5c7843ac57f1e0746000b,
+    type: 3}
+  projectileDamage: 2
+  offsetFromPlayer: {x: 0, y: 3.5, z: 2}
+  projectileSpeed: 5
+  pullRadius: 5

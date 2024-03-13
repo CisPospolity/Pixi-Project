@@ -24,7 +24,7 @@ public class MagneticQuickSkillProjectile : MonoBehaviour
     {
         if(other.GetComponent<IDamageable>() != null)
         {
-            other.GetComponent<IDamageable>().Damage(damage);
+            other.GetComponent<IDamageable>().Damage(damage, this.gameObject);
 
             if(other.GetComponent<EnemyScript>() != null)
             {

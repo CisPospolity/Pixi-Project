@@ -91,6 +91,8 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PlayerUIManager.isGamePaused) return;
+
         //Gravity
         if (characterController.isGrounded && playerVelocity.y < 0)
         {
@@ -179,11 +181,14 @@ public class CharacterMovement : MonoBehaviour
     private void RotationHandler(Vector2 rot)
     {
         rotation = rot;
+        if (PlayerUIManager.isGamePaused) return;
         RotatePlayer();
     }
 
     private void Jump()
     {
+        if (PlayerUIManager.isGamePaused) return;
+
         if (!CheckGround()) return;
         animator.SetTrigger("Jump");
         playerVelocity.y += Mathf.Sqrt(jumpHeight * 2f * gravity);

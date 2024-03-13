@@ -15,6 +15,16 @@ public class KineticDash : DashAbility
     [SerializeField]
     private bool debugRadius;
 
+    public override void Initialize(DashSO so)
+    {
+        base.Initialize(so);
+
+        KineticDashData data = so as KineticDashData;
+        knockbackRadius = data.knockbackRadius;
+        knockbackStrength = data.knockbackStrength;
+        knockbackOffset = data.knockbackOffset;
+    }
+
     protected override IEnumerator PerformDash()
     {
         yield return base.PerformDash();

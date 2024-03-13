@@ -12,6 +12,16 @@ public class ElectricDash : DashAbility
 
     private bool canSecondDash = false;
 
+    public override void Initialize(DashSO so)
+    {
+        base.Initialize(so);
+
+        ElectricDashData data = so as ElectricDashData;
+        secondDashWindow = data.secondDashWindow;
+        postDashSpeedMultiplier = data.postDashSpeedMultiplier;
+        speedDecreaseDuration = data.speedDecreaseDuration;
+    }
+
     public override void Execute()
     {
         base.Execute();

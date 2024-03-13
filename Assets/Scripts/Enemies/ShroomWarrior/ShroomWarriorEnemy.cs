@@ -36,9 +36,12 @@ public class ShroomWarriorEnemy : EnemyScript
         return null;
     }
 
-    public override void Damage(int damage)
+    public override void Damage(int damage, GameObject damageSource, bool selfDamage = false)
+
     {
-        base.Damage(damage);
+        if (!selfDamage && damageSource == this.gameObject) return;
+
+        base.Damage(damage, damageSource, selfDamage);
         animator.SetTrigger("gotHit");
     }
 
@@ -67,7 +70,7 @@ public class ShroomWarriorEnemy : EnemyScript
         Collider[] cols = Physics.OverlapBox(this.transform.position + attackHurtBox.center, attackHurtBox.size / 2);
         foreach(Collider col in cols)
         {
-            col.GetComponent<PlayerScript>()?.Damage(1);
+            col.GetComponent<PlayerScript>()?.Damage(1, this.gameObject);
         }
     }
 

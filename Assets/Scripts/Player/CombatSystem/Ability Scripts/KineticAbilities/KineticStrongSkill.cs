@@ -14,6 +14,17 @@ public class KineticStrongSkill : StrongSkill
     private float knockbackStrength = 10f;
     [SerializeField]
     private int onWallHitDamage = 5;
+
+    public override void Initialize(StrongSkillSO so)
+    {
+        base.Initialize(so);
+
+        KineticStrongSkillData data = so as KineticStrongSkillData;
+        abilityRadius = data.abilityRadius;
+        onCastDamage = data.onCastDamage;
+        knockbackStrength = data.knockbackStrength;
+        onWallHitDamage = data.onWallHitDamage;
+    }
     public override void Execute()
     {
         GetComponent<Animator>().SetTrigger("KineticStrong");
@@ -23,7 +34,7 @@ public class KineticStrongSkill : StrongSkill
         Collider[] colliders = Physics.OverlapSphere(transform.position, abilityRadius);
         foreach(var col in colliders)
         {
-            col.GetComponent<IDamageable>()?.Damage(onCastDamage);
+            col.GetComponent<IDamageable>()?.Damage(onCastDamage, this.gameObject);
             if(col.GetComponent<EnemyScript>() != null)
             {
                 Vector3 directionToEnemy = (col.transform.position - transform.position).normalized;

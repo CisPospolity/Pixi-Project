@@ -27,6 +27,8 @@ public class PlayerInputSystem : MonoBehaviour, PlayerControls.IGameplayActions
     public event Action onDash;
     public event Action onQuickSkill;
     public event Action onStrongSkill;
+    public event Action onAbilitySelectMenu;
+    public event Action onPauseMenu;
 
 
     public event Action onInteract;
@@ -108,6 +110,22 @@ public class PlayerInputSystem : MonoBehaviour, PlayerControls.IGameplayActions
         if(context.performed)
         {
             onStrongSkill?.Invoke();
+        }
+    }
+
+    public void OnAbilitySelectMenu(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            onAbilitySelectMenu?.Invoke();
+        }
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            onPauseMenu?.Invoke();
         }
     }
 

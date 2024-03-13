@@ -74,7 +74,7 @@ public class GravityQuickSkillProjectile : MonoBehaviour
         {
             if (col.GetComponent<PlayerScript>() != null) continue;
 
-            col.GetComponent<IDamageable>()?.Damage(2);
+            col.GetComponent<IDamageable>()?.Damage(2, this.gameObject);
             col.GetComponent<EnemyScript>()?.AddBuffOrDebuff(new ImmobilizingDebuff(3f), "GravityQuickSkill");
         }
 

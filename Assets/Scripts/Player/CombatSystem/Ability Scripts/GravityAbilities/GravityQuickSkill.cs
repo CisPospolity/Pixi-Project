@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using PlayerAbilities;
 using UnityEngine.InputSystem;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 
 public class GravityQuickSkill : QuickSkill
 {
@@ -18,6 +19,16 @@ public class GravityQuickSkill : QuickSkill
     {
         playerInputSystem = GetComponent<PlayerInputSystem>();
         characterMovement = GetComponent<CharacterMovement>();
+    }
+
+    public override void Initialize(QuickSkillSO so)
+    {
+        base.Initialize(so);
+
+        GravityQuickSkillData data = so as GravityQuickSkillData;
+
+        grenadePrefab = data.grenadePrefab;
+        maxThrowRange = data.maxThrowRange;
     }
 
     public override void Execute()

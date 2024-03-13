@@ -21,9 +21,12 @@ public class RunnerEnemy : EnemyScript
             activeWaypoint = waypoints[0];
         }
     }
-    public override void Damage(int damage)
+    public override void Damage(int damage, GameObject damageSource, bool selfDamage = false)
     {
-        base.Damage(damage);
+        if (!selfDamage && damageSource == this.gameObject) return;
+
+        base.Damage(damage, damageSource, selfDamage);
+
         animator.SetTrigger("gotHit");
     }
 

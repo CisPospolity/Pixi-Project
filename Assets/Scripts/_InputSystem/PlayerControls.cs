@@ -107,6 +107,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AbilitySelectMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""d9f0d4fd-27a4-468e-967e-d90c40721df3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""65942c74-27e8-41fa-ab1f-1cbbb8317eea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -351,6 +369,50 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""StrongSkill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1af8e165-3ab0-4942-81ef-5d05281e4d7e"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""AbilitySelectMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3e84d46e-ee49-4b13-bd37-14847c518f24"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AbilitySelectMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""137e4377-fa09-4982-ba33-a9e9f5f775e1"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0a37e78a-cd99-480c-bc83-e6d90fa5634a"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -396,6 +458,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         m_Gameplay_QuickSkill = m_Gameplay.FindAction("QuickSkill", throwIfNotFound: true);
         m_Gameplay_StrongSkill = m_Gameplay.FindAction("StrongSkill", throwIfNotFound: true);
+        m_Gameplay_AbilitySelectMenu = m_Gameplay.FindAction("AbilitySelectMenu", throwIfNotFound: true);
+        m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -466,6 +530,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Interact;
     private readonly InputAction m_Gameplay_QuickSkill;
     private readonly InputAction m_Gameplay_StrongSkill;
+    private readonly InputAction m_Gameplay_AbilitySelectMenu;
+    private readonly InputAction m_Gameplay_Pause;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -479,6 +545,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputAction @QuickSkill => m_Wrapper.m_Gameplay_QuickSkill;
         public InputAction @StrongSkill => m_Wrapper.m_Gameplay_StrongSkill;
+        public InputAction @AbilitySelectMenu => m_Wrapper.m_Gameplay_AbilitySelectMenu;
+        public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -515,6 +583,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @StrongSkill.started += instance.OnStrongSkill;
             @StrongSkill.performed += instance.OnStrongSkill;
             @StrongSkill.canceled += instance.OnStrongSkill;
+            @AbilitySelectMenu.started += instance.OnAbilitySelectMenu;
+            @AbilitySelectMenu.performed += instance.OnAbilitySelectMenu;
+            @AbilitySelectMenu.canceled += instance.OnAbilitySelectMenu;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -546,6 +620,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @StrongSkill.started -= instance.OnStrongSkill;
             @StrongSkill.performed -= instance.OnStrongSkill;
             @StrongSkill.canceled -= instance.OnStrongSkill;
+            @AbilitySelectMenu.started -= instance.OnAbilitySelectMenu;
+            @AbilitySelectMenu.performed -= instance.OnAbilitySelectMenu;
+            @AbilitySelectMenu.canceled -= instance.OnAbilitySelectMenu;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -592,5 +672,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnQuickSkill(InputAction.CallbackContext context);
         void OnStrongSkill(InputAction.CallbackContext context);
+        void OnAbilitySelectMenu(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
