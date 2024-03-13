@@ -22,6 +22,8 @@ public class BossScript : EnemyScript
     [SerializeField]
     private float playerFindingRange = 20f;
     private LineRenderer lineRenderer;
+    [SerializeField]
+    private GameObject afterDeathDialogue;
 
     [Header("Center laser")]
     [SerializeField]
@@ -121,6 +123,7 @@ public class BossScript : EnemyScript
         state = BossState.DEAD;
         animator.SetTrigger("Die");
         this.enabled = false;
+        afterDeathDialogue.SetActive(true);
     }
 
     public override void Damage(int damage, GameObject damageSource, bool selfDamage=false)

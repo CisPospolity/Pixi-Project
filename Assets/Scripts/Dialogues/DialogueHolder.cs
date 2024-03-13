@@ -8,13 +8,36 @@ public class DialogueHolder : Interactable
     private DialogueText dialogueText;
     [SerializeField]
     private DialogueController dialogueController;
+
+    private bool isConversationStarted = false;
+
     public override void Interact(PlayerInteractables interacter)
     {
-        Talk(dialogueText);
+        if (!isConversationStarted)
+        {
+            StartDialogue();
+        }
+        else
+        {
+            ContinueDialogue();
+        }
     }
 
-    public void Talk(DialogueText dialogueText)
+    private void StartDialogue()
     {
-        dialogueController.DisplayNextParagraph(dialogueText);
+        dialogueController.StartConversation(dialogueText);
+        isConversationStarted = true;
+    }
+
+    private void ContinueDialogue()
+    {
+        if (dialogueController.IsConversationEnded())
+        {
+            isConversationStarted = false; // Reset for potential future conversations
+        }
+        else
+        {
+            dialogueController.DisplayNextParagraph();
+        }
     }
 }

@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour
 {
+    [SerializeField]
+    private Image npcSprite;
     [SerializeField]
     private TextMeshProUGUI npcName;
     [SerializeField]
     private TextMeshProUGUI npcDialogueText;
 
+    private Queue<Dialogue> dialogues = new Queue<Dialogue>();
     private Queue<string> paragraphs = new Queue<string>();
     private bool conversationEnded = false;
 
@@ -21,56 +25,87 @@ public class DialogueController : MonoBehaviour
     [SerializeField]
     private float typeSpeed = 10;
 
-    public void DisplayNextParagraph(DialogueText dialogueText)
-    {
-        if(paragraphs.Count == 0)
-        {
-            if(!conversationEnded)
-            {
-                StartConversation(dialogueText);
-            } else
-            {
-                EndConversation();
-                return;
-            }
-        }
 
-
-        if(!isTyping)
-        {
-            var p = paragraphs.Dequeue();
-            typeDialogueCoroutine = StartCoroutine(TypeDialogueText(p));
-        }
-
-        if(paragraphs.Count == 0)
-        {
-            conversationEnded = true;
-        }
-    }
-
-    private void StartConversation(DialogueText dialogueText)
+    public void StartConversation(DialogueText dialogueText)
     {
         if(!gameObject.activeSelf)
         {
             gameObject.SetActive(true);
         }
 
-        npcName.text = dialogueText.speakerName;
+        dialogues.Clear();
+        paragraphs.Clear();
 
-        for(int i =0; i< dialogueText.paragraphs.Length; i++)
+        foreach (var dialogue in dialogueText.dialogue)
         {
-            paragraphs.Enqueue(dialogueText.paragraphs[i]);
+            dialogues.Enqueue(dialogue);
+        }
+
+        DisplayNextDialogue();
+    }
+
+    public bool IsConversationEnded()
+    {
+        return conversationEnded;
+    }
+
+    private void DisplayNextDialogue()
+    {
+        if (dialogues.Count == 0)
+        {
+            EndConversation();
+            return;
+        }
+
+        // Get next dialogue in queue
+        var dialogue = dialogues.Dequeue();
+
+        // Set NPC name and sprite
+        npcName.text = dialogue.npcName;
+        npcSprite.sprite = dialogue.npcSprite;
+
+        // Enqueue paragraphs for current dialogue
+        foreach (var paragraph in dialogue.paragraphs)
+        {
+            paragraphs.Enqueue(paragraph);
+        }
+
+        // Start displaying paragraphs
+        DisplayNextParagraph();
+    }
+
+    public void DisplayNextParagraph()
+    {
+        if (paragraphs.Count == 0)
+        {
+            if (dialogues.Count == 0)
+            {
+                EndConversation();
+            }
+            else
+            {
+                DisplayNextDialogue();
+            }
+            return;
+        }
+
+        if (!isTyping)
+        {
+            var paragraph = paragraphs.Dequeue();
+            if (typeDialogueCoroutine != null)
+            {
+                StopCoroutine(typeDialogueCoroutine);
+            }
+            typeDialogueCoroutine = StartCoroutine(TypeDialogueText(paragraph));
         }
     }
 
     private void EndConversation()
     {
         paragraphs.Clear();
+        dialogues.Clear();
         conversationEnded = false;
-        if(gameObject.activeSelf)
-        {
-            gameObject.SetActive(false);
-        }
+        gameObject.SetActive(false);
     }
 
     /*private IEnumerator TypeDialogueText(string p)
