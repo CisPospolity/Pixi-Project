@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class AbilitySO : ScriptableObject
 {
-    
+    public Sprite abiltyIcon;
 }

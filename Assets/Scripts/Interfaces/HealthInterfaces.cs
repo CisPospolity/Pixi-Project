@@ -5,6 +5,7 @@ using UnityEngine;
 public interface IDamageable
 {
     public void Damage(int damage, GameObject damageSource, bool selfDamage = false);
+    public void InstaKill();
 }
 
 public interface IHealable

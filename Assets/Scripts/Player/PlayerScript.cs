@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerUIManager))]
 public class PlayerScript : MonoBehaviour, IDamageable, IHealable
 {
     [SerializeField]
@@ -18,6 +19,14 @@ public class PlayerScript : MonoBehaviour, IDamageable, IHealable
 
     public delegate void HealthUIDelegate(int maxHealth, int health, int shield);
     public event HealthUIDelegate onHealthChange;
+
+    private PlayerUIManager playerUIManager;
+    private bool isDead = false;
+
+    private void Awake()
+    {
+        playerUIManager = GetComponent<PlayerUIManager>();
+    }
 
     void Start()
     {
@@ -56,6 +65,10 @@ public class PlayerScript : MonoBehaviour, IDamageable, IHealable
         health -= effectiveDamage;
         onHealthChange(maxHealth, health, CalcuateShields());
 
+        if(health + CalcuateShields() <= 0)
+        {
+            Die();
+        }
     }
 
 
@@ -102,6 +115,12 @@ public class PlayerScript : MonoBehaviour, IDamageable, IHealable
         }
     }
 
+    private void Die()
+    {
+        if (isDead) return;
+        playerUIManager.ToggleDeathScreen();
+    }
+
     private int CalcuateShields()
     {
         int shieldAmount = 0;
@@ -112,6 +131,12 @@ public class PlayerScript : MonoBehaviour, IDamageable, IHealable
         }
         shieldAmount += permamentShieldValue;
         return shieldAmount;
+    }
+
+    public void InstaKill()
+    {
+        health = 0;
+        Die();
     }
 }
 

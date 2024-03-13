@@ -22,6 +22,7 @@ public class PlayerCombatSystem : MonoBehaviour
 
     private PlayerInputSystem playerInputSystem;
     private PlayerComboSystem playerComboSystem;
+    private PlayerUIManager uIManager;
     public event Action<AttackType> onAttack;
     private bool isDuringAttack = false;
     private Coroutine queueAttack = null;
@@ -29,6 +30,7 @@ public class PlayerCombatSystem : MonoBehaviour
     {
         playerInputSystem = GetComponent<PlayerInputSystem>();
         playerComboSystem = GetComponent<PlayerComboSystem>();
+        uIManager = GetComponent<PlayerUIManager>();
 
         playerInputSystem.onLightAttack += LightAttack;
         playerInputSystem.onHeavyAttack += HeavyAttack;
@@ -37,7 +39,7 @@ public class PlayerCombatSystem : MonoBehaviour
         playerInputSystem.onQuickSkill += QuickSkill;
         playerInputSystem.onStrongSkill += StrongSkill;
 
-        GetComponent<PlayerComboSystem>().onAttackUse += LockOut;
+        playerComboSystem.onAttackUse += LockOut;
     }
 
     public void LightAttack()
@@ -78,6 +80,7 @@ public class PlayerCombatSystem : MonoBehaviour
         {
             StartCoroutine(ChangeIfAttacking());
             dashAbility.Execute();
+            dashAbility.StartCoroutine(dashAbility.UpdateCooldown(uIManager.dashIconCooldown));
         } else if(isDuringAttack && queueAttack == null)
         {
             queueAttack = StartCoroutine(QueueAttack(DashSkill));
@@ -103,6 +106,8 @@ public class PlayerCombatSystem : MonoBehaviour
             StartCoroutine(ChangeIfAttacking());
 
             quickSkill.Execute();
+            quickSkill.StartCoroutine(quickSkill.UpdateCooldown(uIManager.quickSkillIconCooldown));
+
         }
         else if (isDuringAttack && queueAttack == null)
         {
@@ -123,6 +128,8 @@ public class PlayerCombatSystem : MonoBehaviour
         {
             StartCoroutine(ChangeIfAttacking());
             strongSkill.Execute();
+            strongSkill.StartCoroutine(strongSkill.UpdateCooldown(uIManager.strongSkillIconCooldown));
+
         }
         else if (isDuringAttack && queueAttack == null)
         {
@@ -193,6 +200,18 @@ public class PlayerCombatSystem : MonoBehaviour
         yield return new WaitUntil(() => !isDuringAttack);
         action?.Invoke();
         queueAttack = null;
+    }
+
+    private void OnDestroy()
+    {
+        playerInputSystem.onLightAttack -= LightAttack;
+        playerInputSystem.onHeavyAttack -= HeavyAttack;
+
+        playerInputSystem.onDash -= DashSkill;
+        playerInputSystem.onQuickSkill -= QuickSkill;
+        playerInputSystem.onStrongSkill -= StrongSkill;
+
+        playerComboSystem.onAttackUse -= LockOut;
     }
 
 }

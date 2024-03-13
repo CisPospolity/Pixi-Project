@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PlayerAbilities
 {
@@ -14,6 +15,12 @@ namespace PlayerAbilities
             playerCombatSystem = GetComponent<PlayerCombatSystem>();
         }
         public abstract void Execute();
+
+        protected void OnDestroy()
+        {
+            StopAllCoroutines();
+        }
+
     }
 
     public abstract class PassiveAbility : PlayerAbility
@@ -112,6 +119,18 @@ namespace PlayerAbilities
         {
             animator.SetBool("isDashing", false);
         }
+
+
+        public virtual IEnumerator UpdateCooldown(Image image)
+        {
+            float cooldownTimer = 0;
+            while(cooldownTimer < dashCooldown)
+            {
+                cooldownTimer += Time.deltaTime;
+                image.fillAmount = (1-cooldownTimer)/dashCooldown;
+                yield return null;
+            }
+        }
     }
 
     public abstract class QuickSkill : PlayerAbility
@@ -125,6 +144,16 @@ namespace PlayerAbilities
             abilityCooldown = data.abilityCooldown;
         }
 
+        public virtual IEnumerator UpdateCooldown(Image image)
+        {
+            float cooldownTimer = 0;
+            while (cooldownTimer < abilityCooldown)
+            {
+                cooldownTimer += Time.deltaTime;
+                image.fillAmount = (1 - cooldownTimer) / abilityCooldown;
+                yield return null;
+            }
+        }
     }
 
     public abstract class StrongSkill : PlayerAbility
@@ -136,6 +165,17 @@ namespace PlayerAbilities
         public virtual void Initialize(StrongSkillSO data)
         {
             abilityCooldown = data.abilityCooldown;
+        }
+
+        public virtual IEnumerator UpdateCooldown(Image image)
+        {
+            float cooldownTimer = 0;
+            while (cooldownTimer < abilityCooldown)
+            {
+                cooldownTimer += Time.deltaTime;
+                image.fillAmount = (1 - cooldownTimer) / abilityCooldown;
+                yield return null;
+            }
         }
     }
 }

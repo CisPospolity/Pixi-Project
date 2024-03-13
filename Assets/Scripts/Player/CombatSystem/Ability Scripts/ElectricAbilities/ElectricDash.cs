@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PlayerAbilities;
+using UnityEngine.UI;
+
 public class ElectricDash : DashAbility
 {
     [SerializeField]
@@ -11,6 +13,9 @@ public class ElectricDash : DashAbility
     public float speedDecreaseDuration = 1f;
 
     private bool canSecondDash = false;
+    private Image cooldownImage;
+
+    private Coroutine cooldownShow;
 
     public override void Initialize(DashSO so)
     {
@@ -29,6 +34,7 @@ public class ElectricDash : DashAbility
         if(canSecondDash)
         {
             StartCoroutine(PerformSecondDash());
+            canSecondDash = false;
         }
     }
 
@@ -40,17 +46,28 @@ public class ElectricDash : DashAbility
         ApplySpeedBuff();
         yield return new WaitForSeconds(secondDashWindow);
         canSecondDash = false;
+        if (cooldownShow == null)
+        {
+            yield return base.UpdateCooldown(cooldownImage);
+        }
     }
 
     private IEnumerator PerformSecondDash()
     {
         yield return StartCoroutine(base.PerformDash());
         ApplySpeedBuff();
+        cooldownShow = StartCoroutine(base.UpdateCooldown(cooldownImage));
 
     }
 
     private void ApplySpeedBuff()
     {
         characterMovement.GetSpeedModifierManager().AddOrUpdateSpeedModifier("ElectricDashSpeedBoost", postDashSpeedMultiplier, 1f, speedDecreaseDuration);
+    }
+
+    public override IEnumerator UpdateCooldown(Image image)
+    {
+        cooldownImage = image;
+        yield return null;
     }
 }

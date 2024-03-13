@@ -174,6 +174,12 @@ public abstract class EnemyScript : MonoBehaviour, IDamageable
         }
     }
 
+    public virtual void InstaKill()
+    {
+        health = 0;
+        Die();
+    }
+
     public virtual void Die()
     {
         onDeath?.Invoke();

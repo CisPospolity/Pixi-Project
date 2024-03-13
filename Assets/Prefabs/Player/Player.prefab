@@ -447,7 +447,7 @@ MonoBehaviour:
   health: 5
   maxHealth: 5
   permamentShieldValue: 0
-  invicibilityTime: 1.5
+  invicibilityTime: 0.75
 --- !u!114 &6648323938783339296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,6 +716,9 @@ MonoBehaviour:
   healthEmpty: {fileID: 21300000, guid: 9589b0ada25094241a9c0edf8c201f81, type: 3}
   healthFull: {fileID: 21300000, guid: 7073bb1e5bd676844a6a4ef706bcec6d, type: 3}
   shieldHealth: {fileID: 21300000, guid: 825ad5bf4f4a438488039b62623149d6, type: 3}
+  abilitySelectTransform: {fileID: 0}
+  pauseMenuTransform: {fileID: 0}
+  deathScreenTransform: {fileID: 0}
 --- !u!1001 &8489741242730752576
 PrefabInstance:
   m_ObjectHideFlags: 0

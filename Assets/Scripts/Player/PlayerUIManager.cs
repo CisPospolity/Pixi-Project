@@ -35,7 +35,20 @@ public class PlayerUIManager : MonoBehaviour
     [SerializeField]
     private Transform abilitySelectTransform;
     [SerializeField]
+    private Image dashIcon;
+    [SerializeField]
+    private Image quickSkillIcon;
+    [SerializeField]
+    private Image strongSkillIcon;
+
+    public Image dashIconCooldown;
+    public Image quickSkillIconCooldown;
+    public Image strongSkillIconCooldown;
+
+    [SerializeField]
     private Transform pauseMenuTransform;
+    [SerializeField]
+    private Transform deathScreenTransform;
     private PlayerScript playerScript;
     private PlayerInputSystem inputSystem;
 
@@ -46,7 +59,8 @@ public class PlayerUIManager : MonoBehaviour
     {
         screenMap = new Dictionary<UIScreenType, Transform>() {
             {UIScreenType.AbilityScreen, abilitySelectTransform },
-            {UIScreenType.PauseMenu, pauseMenuTransform }
+            {UIScreenType.PauseMenu, pauseMenuTransform },
+            {UIScreenType.DeathScreen, deathScreenTransform }
         };
 
         playerScript = GetComponent<PlayerScript>();
@@ -55,6 +69,12 @@ public class PlayerUIManager : MonoBehaviour
         inputSystem.onAbilitySelectMenu += ToggleAbilityScreen;
         inputSystem.onPauseMenu += TogglePauseMenu;
 
+    }
+
+    private void Start()
+    {
+        CloseCurrentScreen();
+        Pause(false);
     }
 
     private UIScreenType currentScreen = UIScreenType.None;
@@ -83,7 +103,6 @@ public class PlayerUIManager : MonoBehaviour
             {
                 Transform screenToActivate = screenMap[screenType];
                 if (screenToActivate != null) screenToActivate.gameObject.SetActive(true);
-                Debug.Log($"Opened {screenType}");
 
                 // Pause game if necessary
                 if (screenType == UIScreenType.PauseMenu || screenType == UIScreenType.DeathScreen || screenType == UIScreenType.AbilityScreen)
@@ -100,7 +119,6 @@ public class PlayerUIManager : MonoBehaviour
         {
             Transform screenToDeactivate = screenMap[currentScreen];
             if (screenToDeactivate != null) screenToDeactivate.gameObject.SetActive(false);
-            Debug.Log($"Closed {currentScreen}");
             currentScreen = UIScreenType.None;
 
             // Resume game logic if necessary
@@ -150,6 +168,21 @@ public class PlayerUIManager : MonoBehaviour
                 {
                     OpenScreen(UIScreenType.PauseMenu);
                 }
+            }
+        }
+    }
+
+    public void ToggleDeathScreen()
+    {
+        if (currentScreen == UIScreenType.None || currentScreen == UIScreenType.DeathScreen)
+        {
+            if (currentScreen == UIScreenType.DeathScreen)
+            {
+                CloseCurrentScreen();
+            }
+            else
+            {
+                OpenScreen(UIScreenType.DeathScreen);
             }
         }
     }
@@ -206,6 +239,21 @@ public class PlayerUIManager : MonoBehaviour
                 heartImage.overrideSprite = null;
             }
         }
+    }
+
+    public void UpdateDashIcon(Sprite icon)
+    {
+        dashIcon.sprite = icon;
+    }
+
+    public void UpdateQuickSkillIcon(Sprite icon)
+    {
+        quickSkillIcon.sprite = icon;
+    }
+
+    public void UpdateStrongSkillIcon(Sprite icon)
+    {
+        strongSkillIcon.sprite = icon;
     }
 }
 

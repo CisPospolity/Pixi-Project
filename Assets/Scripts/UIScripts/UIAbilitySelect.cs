@@ -38,15 +38,20 @@ public class UIAbilitySelect : MonoBehaviour
     public void ChangeDash<T, D>(D data) where T : DashAbility where D : DashSO
     {
         playerCombat.ChangeDash<T>(data);
+        playerCombat.GetComponent<PlayerUIManager>()?.UpdateDashIcon(data.abiltyIcon);
     }
     public void ChangeQuickSkill<T, D>(D data) where T : QuickSkill where D : QuickSkillSO
     {
         playerCombat.ChangeQuickSkill<T>(data);
+        playerCombat.GetComponent<PlayerUIManager>()?.UpdateQuickSkillIcon(data.abiltyIcon);
+
     }
 
     public void ChangeStrongSkill<T, D>(D data) where T : StrongSkill where D : StrongSkillSO
     {
         playerCombat.ChangeStrongSkill<T>(data);
+        playerCombat.GetComponent<PlayerUIManager>()?.UpdateStrongSkillIcon(data.abiltyIcon);
+
     }
 
     public void ChangeAbility(AbilitySO abilitySO)
