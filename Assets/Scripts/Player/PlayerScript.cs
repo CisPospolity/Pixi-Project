@@ -31,6 +31,7 @@ public class PlayerScript : MonoBehaviour, IDamageable, IHealable
     void Start()
     {
         onHealthChange?.Invoke(maxHealth, health, CalcuateShields());
+        InvokeRepeating("HealPlayer", 20f, 10f);
     }
 
     public void Damage(int damage, GameObject damageSource, bool selfDamage = false)
@@ -69,6 +70,11 @@ public class PlayerScript : MonoBehaviour, IDamageable, IHealable
         {
             Die();
         }
+    }
+
+    private void HealPlayer()
+    {
+        Heal(1);
     }
 
 
