@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using System.Runtime.CompilerServices;
 using System.Diagnostics;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(LineRenderer))]
 public class BossScript : EnemyScript
@@ -78,6 +79,9 @@ public class BossScript : EnemyScript
     private float frontShotCooldown;
     private float frontShotTimer;
 
+    [SerializeField]
+    private VisualEffect indicator;
+
     public override Transform FindPlayer()
     {
         Collider[] cols = Physics.OverlapSphere(transform.position, playerFindingRange);
@@ -94,7 +98,7 @@ public class BossScript : EnemyScript
 
     private void Start()
     {
-        
+        indicator.Stop();
         InvokeRepeating("CheckStates", 0f, 0.2f);
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = false;
@@ -126,13 +130,13 @@ public class BossScript : EnemyScript
 
         base.Damage(damage, damageSource, selfDamage);
 
-        if(health <= (maxHealth * (2/3)) && !firstPlatformThreshold)
+        if((float)health <= ((float)maxHealth * 0.66f) && !firstPlatformThreshold)
         {
             StartCoroutine(DestroyPlatforms());
             firstPlatformThreshold = true;
         }
 
-        if (health <= (maxHealth * (1/3)) && !secondPlatformThreshold)
+        if ((float)health <= ((float)maxHealth * 0.33f) && !secondPlatformThreshold)
         {
             StartCoroutine(DestroyPlatforms());
             secondPlatformThreshold = true;
@@ -183,8 +187,8 @@ public class BossScript : EnemyScript
         if(massiveLegTimer >= massiveLegCooldown)
         {
             StartCoroutine(MassiveLegAttack());
-            legTimer = 0;
-            legCooldown = Random.Range(massiveLegMinCooldown, massiveLegMaxCooldown);
+            massiveLegTimer = 0;
+            massiveLegCooldown = Random.Range(massiveLegMinCooldown, massiveLegMaxCooldown);
             return;
         }
 
@@ -256,6 +260,8 @@ public class BossScript : EnemyScript
         state = BossState.ATTACKING;
         leg.SetActive(true);
         leg.transform.position = new Vector3(player.position.x, 70f, player.position.z);
+        indicator.transform.position = new Vector3(player.position.x, 2.92f, player.position.z);
+        indicator.Play();
         leg.transform.DOMoveY(5, 1f);
         yield return new WaitForSeconds(1.5f);
         leg.SetActive(false);
@@ -273,6 +279,8 @@ public class BossScript : EnemyScript
         for (int i = 0; i < legAttacks; i++)
         {
             leg.transform.DOMoveY(5, 1f);
+            indicator.transform.position = new Vector3(player.position.x, 2.92f, player.position.z);
+            indicator.Play();
             yield return new WaitForSeconds(1f);
             leg.transform.DOMoveY(70, 1.5f);
             yield return new WaitForSeconds(1.5f);

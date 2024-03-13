@@ -14,4 +14,10 @@ public class DamageTrigger : MonoBehaviour
         if (damageSource == null) damageSource = this.gameObject;
         other.GetComponent<IDamageable>()?.Damage(damage, damageSource);
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (damageSource == null) damageSource = this.gameObject;
+        other.GetComponent<IDamageable>()?.Damage(damage, damageSource);
+    }
 }
