@@ -236,7 +236,7 @@ public class BossScript : EnemyScript
             if (hitCollider.GetComponent<PlayerScript>() != null)
             {
                 Vector3 directionToEnemy = (hitCollider.transform.position - transform.position).normalized;
-                if (Vector3.Angle(transform.forward, directionToEnemy) < 45 / 2)
+                if (Vector3.Angle(transform.forward, directionToEnemy) < 10 / 2)
                 {
 
                     if (hitCollider.GetComponent<IDamageable>() != null)
